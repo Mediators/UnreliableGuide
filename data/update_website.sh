@@ -18,12 +18,11 @@ git diff --exit-code >/dev/null 2>&1 || fail "You have unstaged changes"
 git diff --cached --exit-code >/dev/null 2>&1 || fail "You have staged, uncommited changes"
 
 UNPUSHED=$(git log origin/master..master)
-
 if [ "${UNPUSHED}" != "" ]; then
     echo -n "You have unpushed commits. Push now? [Y/n]"
     read -r CHOICE
     if [ "${CHOICE}" == "Y" ] || [ "${CHOICE}" == "y" ] || [ "${CHOICE}" == "" ]; then
-        echo git push
+        git push
     else
         echo "ERROR: Refusing to run until you push"
         exit 1
