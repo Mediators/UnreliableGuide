@@ -55,7 +55,7 @@
 <li>Chris Jones <a href="mailto:cmsj@tenshu.net">cmsj@tenshu.net</a> (current maintainer)</li>
 </ul>
 <p>If you have a Mediator, or know about them, and either disagree with something in this guide, or have some extra information you'd like to add, please do contact us. We want this document to grow to cover as much detail about Mediators as possible!</p>
-<p>The canonical home of the guide is: https://github.com/Mediators/UnreliableGuide You are very welcome to file bugs there, or submit pull requests, but if you do not want to do either of those, please feel free to email the current maintainer (listed above) with your corrections/suggestions/etc. If you want to become an active author of the document, you are very welcome to join our GitHub team and work directly on the document.</p>
+<p>The canonical home of the guide is: https://mediators.github.io The source of the project lives at: https://github.com/Mediators/UnreliableGuide You are very welcome to file bugs there, or submit pull requests, but if you do not want to do either of those, please feel free to email the current maintainer (listed above) with your corrections/suggestions/etc. If you want to become an active author of the document, you are very welcome to join our GitHub team and work directly on the document.</p>
 <p>There are threads on the main Amiga forums for any discussions you want to have about the guide:</p>
 <ul>
 <li><a href="http://eab.abime.net/showthread.php?t=83531">English Amiga Board</a></li>
@@ -134,7 +134,7 @@
 <ul>
 <li><strong>MASTER</strong>: This is for using the Mediator with the (unreleased) Elbox SharkPPC card. The jumper should always remain closed unless you have one of these mythical cards (which you almost certainly do not).</li>
 <li><strong>WINSIZE</strong>: This relates to how much memory space your PCI cards require. Since the only card that's likely to present memory to the system, is your graphics card, you can base the decision for this jumper on the amount of RAM on your graphics card. If it's less than 256MB, open this jumper. If it's 256MB or more, close this jumper.</li>
-<li><strong>SWAPCONFIG</strong>: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091) or a Zorro 3 graphics card).</li>
+<li><strong>SWAPCONFIG</strong>: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091 or X-Surf-100) or a Zorro 3 graphics card).</li>
 </ul>
 <h2 id="software">3. Software:</h2>
 <p>Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the <em>Mediator Multimedia CD</em> (generally known as <em>MMCD</em>).</p>
