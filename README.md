@@ -20,7 +20,7 @@ There are threads on the main Amiga forums for any discussions you want to have 
 ## Contributions:
 To write this guide, we have drawn extensively on the help and writings of other people. Specific thanks to:
 
- * mechy
+ * Mech
  * grelbfarlk
 
 ## License:
