@@ -36,6 +36,7 @@ fi
 
 HEADREF=$(git rev-parse HEAD)
 
+make
 cp unreliable-mediator-guide.html "${WEBSITE_DIR}/index.html"
 cp unreliable-mediator-guide.pdf "${WEBSITE_DIR}/TUMG.pdf"
 
