@@ -126,14 +126,14 @@ Somewhat unusually for Amiga hardware, there is no device driver for the Mediato
 
 **NOTE**: These instructions are kept intentionally simple. For Radeon/Voodoo users, there are good installation guides in the MMCD/MM_CD_UP.
 
- * Install Picasso96 and choose the *Cybervision 3d* card.
+ * Install Picasso96 2.1b ([from Aminet](http://aminet.net/package/driver/video/Picasso96)) and choose the *Cybervision 3D* card.
  * Once the installation is complete, open `DEVS:Monitors/`
  * Rename the `CVision3D` monitor to `Radeon` or `Voodoo` (or some other suitable name for your PCI graphics card)
  * Edit the tooltypes for the monitor
  * Change the `BOARDTYPE` value to the name of the graphics card driver (which live in `LIBS:Picasso96/`), e.g. `Radeon`
 
 #### 3.1.3 Sound card:
-Assuming you ran the Elbox installer, it will have installed `AHI`, the Amiga's retargetable audio framework, and several drivers, and a Mixer application.
+Assuming you ran the Elbox installer, it will have installed `AHI`, the Amiga's retargetable audio framework, and several drivers, and a Mixer application. It seems as though Elbox installs AHI 4.21, but then also places some newer components on top of that install, so it may not be possible to easily recreate a known-good setup without using Elbox's installer. If you have set up AHI from scratch with a Mediator, please let us know (particularly if you have tested the latest version, 6.0).
 
 Your sound card will require some additional configuration:
 

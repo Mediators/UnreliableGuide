@@ -153,14 +153,14 @@
 <h4 id="graphics-card">3.1.2 Graphics card:</h4>
 <p><strong>NOTE</strong>: These instructions are kept intentionally simple. For Radeon/Voodoo users, there are good installation guides in the MMCD/MM_CD_UP.</p>
 <ul>
-<li>Install Picasso96 and choose the <em>Cybervision 3d</em> card.</li>
+<li>Install Picasso96 2.1b (<a href="http://aminet.net/package/driver/video/Picasso96">from Aminet</a>) and choose the <em>Cybervision 3D</em> card.</li>
 <li>Once the installation is complete, open <code>DEVS:Monitors/</code></li>
 <li>Rename the <code>CVision3D</code> monitor to <code>Radeon</code> or <code>Voodoo</code> (or some other suitable name for your PCI graphics card)</li>
 <li>Edit the tooltypes for the monitor</li>
 <li>Change the <code>BOARDTYPE</code> value to the name of the graphics card driver (which live in <code>LIBS:Picasso96/</code>), e.g. <code>Radeon</code></li>
 </ul>
 <h4 id="sound-card">3.1.3 Sound card:</h4>
-<p>Assuming you ran the Elbox installer, it will have installed <code>AHI</code>, the Amiga's retargetable audio framework, and several drivers, and a Mixer application.</p>
+<p>Assuming you ran the Elbox installer, it will have installed <code>AHI</code>, the Amiga's retargetable audio framework, and several drivers, and a Mixer application. It seems as though Elbox installs AHI 4.21, but then also places some newer components on top of that install, so it may not be possible to easily recreate a known-good setup without using Elbox's installer. If you have set up AHI from scratch with a Mediator, please let us know (particularly if you have tested the latest version, 6.0).</p>
 <p>Your sound card will require some additional configuration:</p>
 <p><strong>NOTE:</strong> AHI is exposed to applications as a series of <code>unit</code>s. Each unit can be configured to send its audio to a soundcard of your choice, with quality settings of your choosing. For this section we will assume that you only have one soundcard, you will configure all your applications to use AHI unit 0, and you want the highest possible sound quality.</p>
 <ul>
