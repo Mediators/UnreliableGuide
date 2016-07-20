@@ -8,14 +8,19 @@ function fail() {
     exit 1
 }
 
+function isGitClean() {
+    rc=0
+    git diff --exit-code >/dev/null 2>&1 || rc=1
+    git diff --cached --exit-code >/dev/null 2>&1 || rc=1
+    return $rc
+}
+
 WEBSITE_DIR="../mediators.github.io"
 if [ ! -d "${WEBSITE_DIR}" ]; then
     fail "Unable to find local website repo checkout at ${WEBSITE_DIR}"
 fi
 
-git diff --exit-code >/dev/null 2>&1 || fail "You have unstaged changes"
-
-git diff --cached --exit-code >/dev/null 2>&1 || fail "You have staged, uncommited changes"
+isGitClean || fail "Your git repo is not clean. Commit!"
 
 UNPUSHED=$(git log origin/master..master)
 if [ "${UNPUSHED}" != "" ]; then
@@ -36,8 +41,13 @@ cp unreliable-mediator-guide.pdf "${WEBSITE_DIR}/TUMG.pdf"
 
 pushd "${WEBSITE_DIR}"
 
-git commit -am "Import files at ${HEADREF}"
-git push -v
+needsCommit=0
+isGitClean || needsCommit=1
+
+if [ $needsCommit -eq 1 ]; then
+    git commit -am "Import files at ${HEADREF}"
+    git push -v
+fi
 
 popd
 
