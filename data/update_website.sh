@@ -37,6 +37,14 @@ fi
 HEADREF=$(git rev-parse HEAD)
 
 make
+
+needsCommit=0
+isGitClean || needsCommit=1
+if [ $needsCommit -eq 1 ]; then
+    git commit -am "Update output files at ${HEADREF}"
+    git push -v
+fi
+
 cp unreliable-mediator-guide.html "${WEBSITE_DIR}/index.html"
 cp unreliable-mediator-guide.pdf "${WEBSITE_DIR}/TUMG.pdf"
 
