@@ -44,12 +44,19 @@ A Mediator typically consists of two main parts:
 The backplane board is generally very simple, it is really just a series of PCI and/or Zorro slots. The real magic of the Mediator happens on the bridge board. This board sits on both PCI and Zorro, and contains a series of chips (known as *MACH*) that translate between the protocols of PCI and Zorro, allowing the Amiga to communicate with the PCI cards and vice versa.
 
 ### 2.1 Supported PCI cards:
-
 It's important to use cards which are supported. Unfortunately the list is quite small, partly because writing hardware drivers is not easy, partly because the Mediator Driver Development Kit is not publicly available.
 
 Elbox maintains a list of compatible cards [on their website](http://www.elbox.com/mediator_driver_guide.html)
 
 There are also one or two additional drivers [on Aminet](http://aminet.net/search?name=mediator&path[]=driver&q_desc=OR&desc=mediator)
+
+#### 2.1.1 Supported voltages:
+All Mediators support 5V PCI cards, but only some support 3.3V PCI cards. You can tell which voltages a PCI card works with, by looking at its edge connector. If it has a section cut out of the edge connector 5.6cm away from the backplate, it requires 3.3V. If it has a section cut out of the edge connector 10cm from the backplate, it requires 5V. Cards that have both sections cut out, work with either 3.3V or 5V.
+
+It is possible to modify 5V Mediators to supply 3.3V to cards that need it, by connecting a 3.3V supply to the appropriate PCI pins on the back of the Mediator busboard.
+(If you would like to document the process here, please contact us!)
+
+It is also often possible to modify PCI cards to have their own voltage regulator (e.g. `LM1084`) to convert 5V to 3.3V on the card itself.
 
 ### 2.2 Installation:
 Obviously the installation for different Amigas varies widely, because of their different form factors. Specific information for various models can be found below, but the general steps are:
@@ -65,7 +72,7 @@ Obviously the installation for different Amigas varies widely, because of their 
 
 *NOTE:* Some users have reported that on some Mediators, the order of PCI cards is important, particularly the placement of the graphics card. Please contact us if you know more about this.
 
-#### 2.2.1 4000Di
+#### 2.2.1 4000Di:
 
   * Remove the A4000 top cover
   * Remove the hard disk cage
