@@ -56,6 +56,12 @@
 </ul>
 <p>If you have a Mediator, or know about them, and either disagree with something in this guide, or have some extra information you'd like to add, please do contact us. We want this document to grow to cover as much detail about Mediators as possible!</p>
 <p>The canonical home of the guide is: https://github.com/Mediators/UnreliableGuide You are very welcome to file bugs there, or submit pull requests, but if you do not want to do either of those, please feel free to email the current maintainer (listed above) with your corrections/suggestions/etc. If you want to become an active author of the document, you are very welcome to join our GitHub team and work directly on the document.</p>
+<p>There are threads on the main Amiga forums for any discussions you want to have about the guide:</p>
+<ul>
+<li><a href="http://eab.abime.net/showthread.php?t=83531">English Amiga Board</a></li>
+<li><a href="http://www.amiga.org/forums/showthread.php?p=811379">Amiga.org</a></li>
+<li><a href="http://amigaworld.net/modules/newbb/viewtopic.php?topic_id=41251&amp;start=0&amp;post_id=785207&amp;order=0&amp;viewmode=thread&amp;pid=0&amp;forum=25#785207">AmigaWorld</a></li>
+</ul>
 <h2 id="contributions">Contributions:</h2>
 <p>To write this guide, we have drawn extensively on the help and writings of other people. Specific thanks to:</p>
 <ul>

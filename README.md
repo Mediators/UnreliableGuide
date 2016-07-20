@@ -11,6 +11,12 @@ If you have a Mediator, or know about them, and either disagree with something i
 The canonical home of the guide is: https://github.com/Mediators/UnreliableGuide
 You are very welcome to file bugs there, or submit pull requests, but if you do not want to do either of those, please feel free to email the current maintainer (listed above) with your corrections/suggestions/etc. If you want to become an active author of the document, you are very welcome to join our GitHub team and work directly on the document.
 
+There are threads on the main Amiga forums for any discussions you want to have about the guide:
+
+ * [English Amiga Board](http://eab.abime.net/showthread.php?t=83531)
+ * [Amiga.org](http://www.amiga.org/forums/showthread.php?p=811379)
+ * [AmigaWorld](http://amigaworld.net/modules/newbb/viewtopic.php?topic_id=41251&start=0&post_id=785207&order=0&viewmode=thread&pid=0&forum=25#785207)
+
 ## Contributions:
 To write this guide, we have drawn extensively on the help and writings of other people. Specific thanks to:
 
