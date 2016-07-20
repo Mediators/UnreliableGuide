@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<h1>Table of Contents:</h1>
+<div id="TOC">
+<ul>
+<li><a href="#the-unreliable-mediator-guide">The Unreliable Mediator Guide</a><ul>
+<li><a href="#version">Version:</a></li>
+<li><a href="#authors">Authors:</a></li>
+<li><a href="#contributions">Contributions:</a></li>
+<li><a href="#license">License:</a></li>
+<li><a href="#introduction">1. Introduction:</a></li>
+<li><a href="#hardware">2. Hardware:</a><ul>
+<li><a href="#supported-pci-cards">2.1 Supported PCI cards:</a><ul>
+<li><a href="#supported-voltages">2.1.1 Supported voltages:</a></li>
+</ul></li>
+<li><a href="#installation">2.2 Installation:</a><ul>
+<li><a href="#di">2.2.1 4000Di:</a></li>
+</ul></li>
+<li><a href="#configuration">2.3 Configuration:</a><ul>
+<li><a href="#di-1">2.3.1 4000Di</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#software">3. Software:</a><ul>
+<li><a href="#installation-1">3.1 Installation:</a><ul>
+<li><a href="#general">3.1.1 General:</a></li>
+<li><a href="#graphics-card">3.1.2 Graphics card:</a></li>
+<li><a href="#sound-card">3.1.3 Sound card:</a></li>
+<li><a href="#network-card">3.1.4 Network card:</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="the-unreliable-mediator-guide">The Unreliable Mediator Guide</h1>
+<h2 id="version">Version:</h2>
+<p>0.1 - 2016-07-20</p>
+<h2 id="authors">Authors:</h2>
+<ul>
+<li>Chris Jones <a href="mailto:cmsj@tenshu.net">cmsj@tenshu.net</a> (current maintainer)</li>
+</ul>
+<p>If you have a Mediator, or know about them, and either disagree with something in this guide, or have some extra information you'd like to add, please do contact us. We want this document to grow to cover as much detail about Mediators as possible!</p>
+<p>The canonical home of the guide is: https://github.com/Mediators/UnreliableGuide You are very welcome to file bugs there, or submit pull requests, but if you do not want to do either of those, please feel free to email the current maintainer (listed above) with your corrections/suggestions/etc. If you want to become an active author of the document, you are very welcome to join our GitHub team and work directly on the document.</p>
+<h2 id="contributions">Contributions:</h2>
+<p>To write this guide, we have drawn extensively on the help and writings of other people. Specific thanks to:</p>
+<ul>
+<li>mechy</li>
+<li>grelbfarlk</li>
+</ul>
+<h2 id="license">License:</h2>
+<p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+<h2 id="introduction">1. Introduction:</h2>
+<p>Created by <a href="http://www.elbox.com">Elbox</a>, the Mediators are a range of PCI/Zorro busboards for Amiga computers. They allow users to install industry-standard PCI cards into their Amigas.</p>
+<p>There exist Mediators for:</p>
+<ul>
+<li>A1200</li>
+<li>A3000</li>
+<li>A3000T</li>
+<li>A4000</li>
+<li>A4000T</li>
+</ul>
+<p>Various models and revisions of Mediators have existed since their initial release in 2000/2001. The authors of this guide do not have access to every variant of Mediator, so for now the information contained here can only be assumed to be related to the following models:</p>
+<ul>
+<li>Mediator 4000Di3 (Rev 3.0)</li>
+</ul>
+<h2 id="hardware">2. Hardware:</h2>
+<p>A Mediator typically consists of two main parts:</p>
+<ul>
+<li>A backplane board with slots for some combination of PCI and Zorro cards</li>
+<li>A bridge board which connects to both the PCI and Zorro busses, to translate between them</li>
+</ul>
+<p>The backplane board is generally very simple, it is really just a series of PCI and/or Zorro slots. The real magic of the Mediator happens on the bridge board. This board sits on both PCI and Zorro, and contains a series of chips (known as <em>MACH</em>) that translate between the protocols of PCI and Zorro, allowing the Amiga to communicate with the PCI cards and vice versa.</p>
+<h3 id="supported-pci-cards">2.1 Supported PCI cards:</h3>
+<p>It's important to use cards which are supported. Unfortunately the list is quite small, partly because writing hardware drivers is not easy, partly because the Mediator Driver Development Kit is not publicly available.</p>
+<p>Elbox maintains a list of compatible cards <a href="http://www.elbox.com/mediator_driver_guide.html">on their website</a></p>
+<p>There are also one or two additional drivers <a href="http://aminet.net/search?name=mediator&amp;path%5B%5D=driver&amp;q_desc=OR&amp;desc=mediator">on Aminet</a></p>
+<h4 id="supported-voltages">2.1.1 Supported voltages:</h4>
+<p>All Mediators support 5V PCI cards, but only some support 3.3V PCI cards. You can tell which voltages a PCI card works with, by looking at its edge connector. If it has a section cut out of the edge connector 5.6cm away from the backplate, it requires 3.3V. If it has a section cut out of the edge connector 10cm from the backplate, it requires 5V. Cards that have both sections cut out, work with either 3.3V or 5V.</p>
+<p>It is possible to modify 5V Mediators to supply 3.3V to cards that need it, by connecting a 3.3V supply to the appropriate PCI pins on the back of the Mediator busboard. (If you would like to document the process here, please contact us!)</p>
+<p>It is also often possible to modify PCI cards to have their own voltage regulator (e.g. <code>LM1084</code>) to convert 5V to 3.3V on the card itself.</p>
+<h3 id="installation">2.2 Installation:</h3>
+<p>Obviously the installation for different Amigas varies widely, because of their different form factors. Specific information for various models can be found below, but the general steps are:</p>
+<ul>
+<li>Remove any existing Zorro busboards</li>
+<li>Install the Mediator bridge card into the Mediator busboard</li>
+<li>Install the combined Mediator boards into the Amiga</li>
+<li>Before installing any PCI cards, ensure the Amiga still boots (hold both mouse buttons to enter the Early Boot Menu, check for two entries in the <em>Expansion Board Diagnostic</em> section, with a <a href="http://wiki.amigaos.net/wiki/Amiga_Hardware_Manufacturer_ID_Registry">Manufacturer ID</a> of 2206.</li>
+<li>Install a graphics card</li>
+<li>Install Mediator drivers</li>
+<li>Ensure graphics card works</li>
+<li>Install other PCI cards</li>
+</ul>
+<p><em>NOTE:</em> Some users have reported that on some Mediators, the order of PCI cards is important, particularly the placement of the graphics card. Please contact us if you know more about this.</p>
+<h4 id="di">2.2.1 4000Di:</h4>
+<ul>
+<li>Remove the A4000 top cover</li>
+<li>Remove the hard disk cage</li>
+<li>Remove the metal crossbar above the Zorro daughterboard</li>
+<li>Hold the top corners of the Zorro daughterboard and remove it from the motherboard</li>
+<li><strong>NOTE:</strong> At least one user has found that the Mediator's bridge board may touch some of the jumpers on the motherboard (specifically, J500, J501, J502, J213 J852 on a Rev B motherboard. Rev D boards only have some of these jumpers). It seems sensible to insulate these jumpers in some way, to prevent them shorting a MACH chip (electrical tape should suffice)</li>
+<li>Place the Mediator board on a flat surface with the PCI/Zorro slots facing upwards</li>
+<li>Align the Mediator bridge board with the PCI/Zorro slots nearest the bottom of the card (labelled &quot;MEDIATOR PCI 4000 SLOT&quot;)</li>
+<li>Hold the bridge board along its top edge and push it firmly, but gently, into the slots</li>
+<li><strong>NOTE:</strong> It is a good idea to try and insert the card into both slots at the same time. It's easier to push one corner in first, but this is more likely to leave the card incorrectly aligned, which will make the system unstable</li>
+<li>Align the Mediator board with the daughterboard slot on the motherboard</li>
+<li>Hold the Mediator board along its top edge and push it firmly, but gently, into the motherboard slot</li>
+<li><strong>NOTE:</strong> As above, try to insert the card in one movement, rather than starting with one corner.</li>
+</ul>
+<h3 id="configuration">2.3 Configuration:</h3>
+<p>In terms of hardware configuration, Mediators generally have very little that needs to be done. They have a few jumpers and that's it. However, these jumpers are generally not documented well, and vary between models.</p>
+<h4 id="di-1">2.3.1 4000Di</h4>
+<p>This model has three jumpers:</p>
+<ul>
+<li><strong>MASTER</strong>: This is for using the Mediator with the (unreleased) Elbox SharkPPC card. The jumper should always remain closed unless you have one of these mythical cards (which you almost certainly do not).</li>
+<li><strong>WINSIZE</strong>: This relates to how much memory space your PCI cards require. Since the only card that's likely to present memory to the system, is your graphics card, you can base the decision for this jumper on the amount of RAM on your graphics card. If it's less than 256MB, open this jumper. If it's 256MB or more, close this jumper.</li>
+<li><strong>SWAPCONFIG</strong>: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091 or a Zorro 3 graphics card).</li>
+</ul>
+<h2 id="software">3. Software:</h2>
+<p>Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the <em>Mediator Multimedia CD</em> (generally known as <em>MMCD</em>).</p>
+<p><strong>NOTE:</strong> It's quite common for the CD supplied by Elbox to be significantly out of date, so always check <a href="http://www.elbox.com/downloads_mediator.html">their website</a> for a driver pack update (<em>MM_CD_UP</em>). However, even these update packs do not always contain the most recently available drivers/libraries. The same download page also lists individual updates that have been released (e.g. pci.library) and the dates. Ensure you have the latest versions of everything.</p>
+<h3 id="installation-1">3.1 Installation:</h3>
+<p>The Elbox installers are not particularly neat in their choices of where to install the software/drivers. If you are feeling particularly confident, you may choose to install the various components by hand, but we would suggest that at least your first time, you may want to use the Elbox installers:</p>
+<h4 id="general">3.1.1 General:</h4>
+<ul>
+<li>Run the Installer from the MMCD</li>
+<li>Run the Installer from the latest MM_CD_UP update, if applicable</li>
+<li>Manually copy any newer drivers/libraries you found on Elbox's site, into the appropriate locations on your system</li>
+</ul>
+<p>Somewhat unusually for Amiga hardware, there is no <code>mediator.device</code> driver, instead, access to the PCI cards happens through <code>pci.library</code>. Once you have installed the drivers, open a shell and run <code>C:PCIInfo</code> and you should see a listing of any PCI cards you have installed (which ideally should just be the graphics card at this point).</p>
+<p><strong>NOTE:</strong> A graphics card is generally vital to the operation of a Mediator because of the RAM it provides. PCI cards are unable to access the Amiga's memory through the Zorro bus, so the Mediator drivers reserve a portion of the graphics card's memory for DMA operations with other cards. Thus, any card you install, which uses DMA (i.e. most cards), will only operate if there is a graphics card present.</p>
+<p><strong>FURTHER NOTE:</strong> The mere presence of a graphics card is not sufficient, Picasso96 must also be installed and configured to use the appropriate driver for your PCI graphics card. You don't have to be using an RTG screenmode through the graphics card, but without it at least having an active entry in <code>DEVS:Monitors/</code> most other PCI operations will not be possible.</p>
+<h4 id="graphics-card">3.1.2 Graphics card:</h4>
+<p><strong>NOTE</strong>: These instructions are kept intentionally simple. For Radeon/Voodoo users, there are good installation guides in the MMCD/MM_CD_UP.</p>
+<ul>
+<li>Install Picasso96 and choose the <em>Cybervision 3d</em> card.</li>
+<li>Once the installation is complete, open <code>DEVS:Monitors/</code></li>
+<li>Rename the <code>CVision3D</code> monitor to <code>Radeon</code> or <code>Voodoo</code> (or some other suitable name for your PCI graphics card)</li>
+<li>Edit the tooltypes for the monitor</li>
+<li>Change the <code>BOARDTYPE</code> value to the name of the graphics card driver (which live in <code>LIBS:Picasso96/</code>), e.g. <code>Radeon</code></li>
+</ul>
+<h4 id="sound-card">3.1.3 Sound card:</h4>
+<p>Assuming you ran the Elbox installer, it will have installed <code>AHI</code>, the Amiga's retargetable audio framework, and several drivers, and a Mixer application.</p>
+<p>Your sound card will require some additional configuration:</p>
+<p><em>NOTE:</em> AHI is exposed to applications as a series of <code>unit</code>s. Each unit can be configured to send its audio to a soundcard of your choice, with quality settings of your choosing. For this section we will assume that you only have one soundcard, you will configure all your applications to use AHI unit 0, and you want the highest possible sound quality.</p>
+<ul>
+<li>Open <code>SYS:Prefs/</code> and run the <code>AHI</code> prefs.</li>
+<li>Find the dropdown for selecting which unit to configure (usually it will say <code>Music Unit</code>)</li>
+<li>In AHI, a unit is an endpoint exposed by AHI to applications. Each application which can use AHI, should let you choose which unit to use. It is up to you how the units are configured. Each one can point at a soundcard of your choice, and have quality settings of your choice</li>
+<li>For the <code>Music Unit</code> and <code>Unit 0</code>:</li>
+<li>Select your soundcard (e.g. <code>SB128</code> for a SoundBlaster 128 card). It will be listed several times with different options. The best choice is likely the <code>HiFi 16 bit stereo++</code> option.</li>
+<li>Move the frequency slider to 44000 Hz or above (e.g. 48000 Hz)</li>
+<li>Click <code>Save</code></li>
+<li>The soundcard likely defaults to zero volume when it is initialiesd, so you'll need an audio mixer application to save some sensible values and load them at startup. The Elbox installer will have created <code>SYS:Prefs/Mixer</code> for changing mixer settings, and a corresponding entry in <code>S:User-Startup</code> to load the values at boot.</li>
+</ul>
+<p><em>NOTE:</em> The Mixer app supplied by Elbox is not very high quality (Elbox themselves recommend using a third party mixer). A good alternative is <a href="http://aminet.net/package/driver/audio/GhostMix">GhostMix</a>. You will need to remove the Elbox mixer item in <code>S:User-Startup</code> to use a different mixer application.</p>
+<h4 id="network-card">3.1.4 Network card:</h4>
+<p>The Mediator drivers support</p>
+</body>
+</html>
