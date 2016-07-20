@@ -8,7 +8,8 @@
 
 If you have a Mediator, or know about them, and either disagree with something in this guide, or have some extra information you'd like to add, please do contact us. We want this document to grow to cover as much detail about Mediators as possible!
 
-The canonical home of the guide is: https://github.com/Mediators/UnreliableGuide
+The canonical home of the guide is: https://mediators.github.io
+The source of the project lives at: https://github.com/Mediators/UnreliableGuide
 You are very welcome to file bugs there, or submit pull requests, but if you do not want to do either of those, please feel free to email the current maintainer (listed above) with your corrections/suggestions/etc. If you want to become an active author of the document, you are very welcome to join our GitHub team and work directly on the document.
 
 There are threads on the main Amiga forums for any discussions you want to have about the guide:
@@ -101,7 +102,7 @@ This model has three jumpers:
 
  * **MASTER**: This is for using the Mediator with the (unreleased) Elbox SharkPPC card. The jumper should always remain closed unless you have one of these mythical cards (which you almost certainly do not).
  * **WINSIZE**: This relates to how much memory space your PCI cards require. Since the only card that's likely to present memory to the system, is your graphics card, you can base the decision for this jumper on the amount of RAM on your graphics card. If it's less than 256MB, open this jumper. If it's 256MB or more, close this jumper.
- * **SWAPCONFIG**: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091) or a Zorro 3 graphics card).
+ * **SWAPCONFIG**: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091 or X-Surf-100) or a Zorro 3 graphics card).
 
 ## 3. Software:
 Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the *Mediator Multimedia CD* (generally known as *MMCD*).
