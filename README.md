@@ -127,7 +127,6 @@ Somewhat unusually for Amiga hardware, there is no `mediator.device` driver, ins
  * Change the `BOARDTYPE` value to the name of the graphics card driver (which live in `LIBS:Picasso96/`), e.g. `Radeon`
 
 #### 3.1.3 Sound card:
-
 Assuming you ran the Elbox installer, it will have installed `AHI`, the Amiga's retargetable audio framework, and several drivers, and a Mixer application.
 
 Your sound card will require some additional configuration:
@@ -146,5 +145,97 @@ Your sound card will require some additional configuration:
 *NOTE:* The Mixer app supplied by Elbox is not very high quality (Elbox themselves recommend using a third party mixer). A good alternative is [GhostMix](http://aminet.net/package/driver/audio/GhostMix). You will need to remove the Elbox mixer item in `S:User-Startup` to use a different mixer application.
 
 #### 3.1.4 Network card:
+There are Mediator drivers for two Realtek chipsets, 8029 (10Mb/s) via `MediatorNET.device` and 8139 (100Mb/s) via `FastEthernet.device`. To use one of these, you'll need a TCP/IP stack installed, such as:
 
-The Mediator drivers support 
+ * Roadshow
+ * Genesis
+ * MiamiDX
+ * AmiTCP
+
+Of these, Roadshow is the newest and is often the fastest. The choice is yours, and configuring the stack is beyond the scope of this document.
+
+There is an environment variable for `RTL-8139` devices, `ENVARC:Mediator/FastEthernet` which controls how the Ethernet link should be configured, see Section 3.2 for more information.
+
+#### 3.1.5 USB card:
+
+TODO
+
+#### 3.1.6 TV Tuners:
+
+Please contribute to this section if you have any useful information :)
+
+#### 3.1.7 SCSI cards:
+
+Please contribute to this section if you have any useful information :)
+
+#### 3.1.8 Serial/Parallel cards:
+
+Please contribute to this section if you have any useful information :)
+
+#### 3.1.9 MPEG 2 decoder cards:
+
+Please contribute to this section if you have any useful information :)
+
+### 3.2 Configuration:
+
+#### 3.2.1 Environment Variables:
+There are many Mediator environment variables which can be set in `ENVARC:Mediator/`:
+
+ * MMU:
+   * This only applies to A1200 Mediators
+   * If set to `Yes`, maps the PCI memory space into the processor's memory space.
+   * Must be set to `No` if you have a BlizzardPPC and want to use PCI resources with both of its CPUs.
+ * NoCache:
+   * This only applies to A1200 Mediators with 68030/MMU processors.
+   * If set to `Yes`, Mediator PCI space is not cacheable.
+ * Emulation:
+   * This only applies to A1200 Mediators with a BlizzardPPC.
+   * Set to `Yes` if you are running AmigaOS 4.
+ * Warp3D:
+   * This should no longer be necessary, set to `No`.
+ * SpiderBuf:
+   * This controls how much RAM is allocated for USB card DMA buffers
+   * The value is a number which will be used as a multiple of `40KB`
+   * The default value is `1` (i.e. use `40KB` for DMA buffers)
+   * The highest possible value is `51` (i.e. just over `2MB` of DMA buffers)
+   * If you have information about the performance of different settings here, please contact us :)
+ * RadeonMem:
+   * This controls how much of a Radeon's RAM is kept for Picasso96
+   * Any leftover RAM can be used for system memory (see `RadeonMemOS`)
+   * **NOTE:** The highest `1MB` of Radeon RAM is always reserved for DMA with other PCI cards
+ * RadeonMemOS:
+   * If set to `Yes`, unused Radeon RAM will be added to the system memory
+   * Note that even though the RAM is high performance graphics RAM, the CPU can only access it at Zorro 3 speeds (i.e. a maximum of around `14MB/s`) which is considerably slower than RAM which is directly on your accelerator board (if possible).
+ * VoodooMem:
+   * This controls how much of a Voodoo's RAM is kept for Picasso 96
+   * Any leftover RAM can be used for system memory (see `VoodooMemOS`)
+   * **NOTE:** The highest `1MB` of Radeon RAM is always reserved for DMA with other PCI cards
+ * VoodooMemOS -
+   * If set to `Yes`, unused Voodoo RAM will be added to the system memory
+   * Note that even though the RAM is high performance graphics RAM, the CPU can only access it at Zorro 3 speeds (i.e. a maximum of around `14MB/s`) which is considerably slower than RAM which is directly on your accelerator board (if possible).
+ * VoodooInt:
+   * This controls the Voodoo vertical blanking interrupt
+   * If set to `Yes`, interrupts are generated during VBlank, which may be required for some games
+   * If set to `No`, interrupts are not generated during VBlank
+ * VirgeMem:
+   * This controls how much of an S3 Virge's RAM is kept for Picasso 96
+ * VirgeInt:
+   * This controls the S3 Virge vertical blanking interrupt
+   * If set to `Yes`, interrupts are generated during VBlank, which may be required for some games
+   * If set to `No`, interrupts are not generated during VBlank
+ * Buster:
+   * This applies only to A3000 and A4000 (and Tower variants)
+   * You should set this to the version of Buster chip installed in your Amiga
+ * Tuner:
+   * If you have any information about this variable, please contact us :)
+ * Background:
+   * This defines a color of background which will be replaced by TV, if you're showing TV on the background
+   * Defaults to `RED=170 GREEN=170 BLUE=170` (which is the Workbench default grey)
+ * FastEthernet:
+   * This controls the Ethernet link negotiation of `RTL8139` devices. The possible values are:
+     * 0 - Auto Negotiation
+     * 1 - 100Mb/s Full Duplex
+     * 2 - 100Mb/s Half Duplex
+     * 3 - 10Mb/s Full Duplex
+     * 4 - 10Mb/s Half Duplex
+
