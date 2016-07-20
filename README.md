@@ -116,7 +116,7 @@ The Elbox installers are not particularly neat in their choices of where to inst
  * Run the Installer from the latest MM_CD_UP update, if applicable
  * Manually copy any newer drivers/libraries you found on Elbox's site, into the appropriate locations on your system
 
-Somewhat unusually for Amiga hardware, there is no `mediator.device` driver, instead, access to the PCI cards happens through `pci.library`. Once you have installed the drivers, open a shell and run `C:PCIInfo` and you should see a listing of any PCI cards you have installed (which ideally should just be the graphics card at this point).
+Somewhat unusually for Amiga hardware, there is no device driver for the Mediator, instead, access to the PCI cards happens through `pci.library`. Once you have installed the drivers, open a shell and run `C:PCIInfo` and you should see a listing of any PCI cards you have installed (which ideally should just be the graphics card at this point).
 
 **NOTE:** A graphics card is generally vital to the operation of a Mediator because of the RAM it provides. PCI cards are unable to access the Amiga's memory through the Zorro bus, so the Mediator drivers reserve a portion of the graphics card's memory for DMA operations with other cards. Thus, any card you install, which uses DMA (i.e. most cards), will only operate if there is a graphics card present.
 
