@@ -8,9 +8,9 @@
 
 If you have a Mediator, or know about them, and either disagree with something in this guide, or have some extra information you'd like to add, please do contact us. We want this document to grow to cover as much detail about Mediators as possible!
 
-The canonical home of the guide is: https://mediators.github.io
+The canonical home of the guide is: [https://mediators.github.io](https://mediators.github.io)
 
-The source of the project lives at: https://github.com/Mediators/UnreliableGuide
+The source of the project lives at: [https://github.com/Mediators/UnreliableGuide](https://github.com/Mediators/UnreliableGuide)
 
 You are very welcome to file bugs there, or submit pull requests, but if you do not want to do either of those, please feel free to email the current maintainer (listed above) with your corrections/suggestions/etc. If you want to become an active author of the document, you are very welcome to join our GitHub team and work directly on the document.
 
