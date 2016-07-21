@@ -98,7 +98,7 @@
 <p>Elbox maintains a list of compatible cards <a href="http://www.elbox.com/mediator_driver_guide.html">on their website</a></p>
 <p>There are also one or two additional drivers <a href="http://aminet.net/search?name=mediator&amp;path%5B%5D=driver&amp;q_desc=OR&amp;desc=mediator">on Aminet</a></p>
 <h4 id="supported-voltages">2.1.1 Supported voltages:</h4>
-<p>All Mediators support 5V PCI cards, but only some support 3.3V PCI cards. You can tell which voltages a PCI card works with, by looking at its edge connector. If it has a section cut out of the edge connector 5.6cm away from the backplate, it requires 3.3V. If it has a section cut out of the edge connector 10cm from the backplate, it requires 5V. Cards that have both sections cut out, work with either 3.3V or 5V.</p>
+<p>All Mediators support 5V PCI cards, but only some support 3.3V PCI cards. You can tell which voltages a PCI card works with, by looking at its edge connector. If it has a section cut out of the edge connector 5.6cm away from the backplate, it requires 3.3V. If it has a section cut out of the edge connector 10cm from the backplate, it requires 5V. Cards that have both sections cut out, work with either 3.3V or 5V. Some users have noticed that some PCI cards appear to be 5V compatible, but actually do require 3.3V.</p>
 <p>It is possible to modify 5V Mediators to supply 3.3V to cards that need it, by connecting a 3.3V supply to the appropriate PCI pins on the back of the Mediator busboard. (If you would like to document the process here, please contact us!)</p>
 <p>It is also often possible to modify PCI cards to have their own voltage regulator (e.g. <code>LM1084</code>) to convert 5V to 3.3V on the card itself.</p>
 <h3 id="installation">2.2 Installation:</h3>
