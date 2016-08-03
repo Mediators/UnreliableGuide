@@ -253,7 +253,7 @@ There are many Mediator environment variables which can be set in `ENVARC:Mediat
 ### 3.3 Versions:
 
 Here we attempt to collect a definitive list of Mediator software versions. If you have any `MMCD` or `MM_CD_UP` versions not included here, please contact us :)
-Most of the `MM_CD_UP` archives can be downloaded from [http://www.elbox.com/](Elbox's website), and many of them are included on the latest `MMCD` CDs.
+Most of the `MM_CD_UP` archives can be downloaded from (Elbox's website)[http://www.elbox.com/], and many of them are included on the latest `MMCD` CDs.
 
 #### 3.3.1 MMCD:
 
