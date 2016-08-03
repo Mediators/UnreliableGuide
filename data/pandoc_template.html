@@ -26,6 +26,27 @@ $endif$
 $for(css)$
   <link rel="stylesheet" href="$css$" type="text/css" />
 $endfor$
+  <style type="text/css">
+  body {
+      font-family: verdana,arial,sans-serif;
+      font-size: 12px;
+  }
+  table {
+      width: 80%;
+      border: 1px solid #000;
+      border-collapse: collapse;
+  }
+  thead tr {
+      border: 1px solid #000;
+      background-color: #dedede;
+  }
+  td {
+      border: 1px solid #000;
+      padding: 8px;
+  }
+  tr.even { background: #eee; }
+  tr.odd  { background: #fff; }
+  </style>
 $if(math)$
   $math$
 $endif$

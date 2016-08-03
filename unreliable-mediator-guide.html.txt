@@ -6,6 +6,27 @@
   <meta name="generator" content="pandoc" />
   <title>Unreliable Mediator Guide – </title>
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+  body {
+      font-family: verdana,arial,sans-serif;
+      font-size: 12px;
+  }
+  table {
+      width: 80%;
+      border: 1px solid #000;
+      border-collapse: collapse;
+  }
+  thead tr {
+      border: 1px solid #000;
+      background-color: #dedede;
+  }
+  td {
+      border: 1px solid #000;
+      padding: 8px;
+  }
+  tr.even { background: #eee; }
+  tr.odd  { background: #fff; }
+  </style>
 </head>
 <body>
 <h1>Table of Contents:</h1>
