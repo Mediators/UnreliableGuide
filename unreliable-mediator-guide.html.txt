@@ -33,50 +33,50 @@
 <div id="TOC">
 <ul>
 <li><a href="#the-unreliable-mediator-guide">The Unreliable Mediator Guide</a><ul>
-<li><a href="#version">Version:</a></li>
-<li><a href="#authors">Authors:</a></li>
-<li><a href="#contributions">Contributions:</a></li>
-<li><a href="#license">License:</a></li>
-<li><a href="#introduction">1. Introduction:</a></li>
-<li><a href="#hardware">2. Hardware:</a><ul>
-<li><a href="#supported-pci-cards">2.1 Supported PCI cards:</a><ul>
-<li><a href="#supported-voltages">2.1.1 Supported voltages:</a></li>
+<li><a href="#version">Version</a></li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#contributions">Contributions</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#hardware">2. Hardware</a><ul>
+<li><a href="#supported-pci-cards">2.1 Supported PCI cards</a><ul>
+<li><a href="#supported-voltages">2.1.1 Supported voltages</a></li>
 </ul></li>
-<li><a href="#installation">2.2 Installation:</a><ul>
-<li><a href="#di">2.2.1 4000Di:</a></li>
+<li><a href="#installation">2.2 Installation</a><ul>
+<li><a href="#di">2.2.1 4000Di</a></li>
 </ul></li>
-<li><a href="#configuration">2.3 Configuration:</a><ul>
+<li><a href="#configuration">2.3 Configuration</a><ul>
 <li><a href="#di-1">2.3.1 4000Di</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#software">3. Software:</a><ul>
-<li><a href="#installation-1">3.1 Installation:</a><ul>
-<li><a href="#general">3.1.1 General:</a></li>
-<li><a href="#graphics-card">3.1.2 Graphics card:</a></li>
-<li><a href="#sound-card">3.1.3 Sound card:</a></li>
-<li><a href="#network-card">3.1.4 Network card:</a></li>
-<li><a href="#usb-card">3.1.5 USB card:</a></li>
-<li><a href="#tv-tuners">3.1.6 TV Tuners:</a></li>
-<li><a href="#scsi-cards">3.1.7 SCSI cards:</a></li>
-<li><a href="#serialparallel-cards">3.1.8 Serial/Parallel cards:</a></li>
-<li><a href="#mpeg-2-decoder-cards">3.1.9 MPEG 2 decoder cards:</a></li>
+<li><a href="#software">3. Software</a><ul>
+<li><a href="#installation-1">3.1 Installation</a><ul>
+<li><a href="#general">3.1.1 General</a></li>
+<li><a href="#graphics-card">3.1.2 Graphics card</a></li>
+<li><a href="#sound-card">3.1.3 Sound card</a></li>
+<li><a href="#network-card">3.1.4 Network card</a></li>
+<li><a href="#usb-card">3.1.5 USB card</a></li>
+<li><a href="#tv-tuners">3.1.6 TV Tuners</a></li>
+<li><a href="#scsi-cards">3.1.7 SCSI cards</a></li>
+<li><a href="#serialparallel-cards">3.1.8 Serial/Parallel cards</a></li>
+<li><a href="#mpeg-2-decoder-cards">3.1.9 MPEG 2 decoder cards</a></li>
 </ul></li>
-<li><a href="#configuration-1">3.2 Configuration:</a><ul>
-<li><a href="#environment-variables">3.2.1 Environment Variables:</a></li>
+<li><a href="#configuration-1">3.2 Configuration</a><ul>
+<li><a href="#environment-variables">3.2.1 Environment Variables</a></li>
 </ul></li>
-<li><a href="#versions">3.3 Versions:</a><ul>
-<li><a href="#mmcd">3.3.1 MMCD:</a></li>
-<li><a href="#mm_cd_up">3.3.2 MM_CD_UP:</a></li>
-<li><a href="#spider-ii-driver">3.3.3 Spider II Driver:</a></li>
+<li><a href="#versions">3.3 Versions</a><ul>
+<li><a href="#mmcd">3.3.1 MMCD</a></li>
+<li><a href="#mm_cd_up">3.3.2 MM_CD_UP</a></li>
+<li><a href="#spider-ii-driver">3.3.3 Spider II Driver</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 <h1 id="the-unreliable-mediator-guide">The Unreliable Mediator Guide</h1>
-<h2 id="version">Version:</h2>
+<h2 id="version">Version</h2>
 <p>0.2 - 2016-08-03</p>
-<h2 id="authors">Authors:</h2>
+<h2 id="authors">Authors</h2>
 <ul>
 <li>Chris Jones <a href="mailto:cmsj@tenshu.net">cmsj@tenshu.net</a> (current maintainer)</li>
 </ul>
@@ -92,15 +92,15 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <li><a href="http://amigaworld.net/modules/newbb/viewtopic.php?topic_id=41251&amp;start=0&amp;post_id=785207&amp;order=0&amp;viewmode=thread&amp;pid=0&amp;forum=25#785207">AmigaWorld</a></li>
 </ul>
 <p>You can also discuss the guide on the <a href="https://groups.yahoo.com/neo/groups/Amiga-Mediator/info">Amiga-Mediator Yahoo Group</a></p>
-<h2 id="contributions">Contributions:</h2>
+<h2 id="contributions">Contributions</h2>
 <p>To write this guide, we have drawn extensively on the help and writings of other people. Specific thanks to:</p>
 <ul>
 <li>Mech</li>
 <li>grelbfarlk</li>
 </ul>
-<h2 id="license">License:</h2>
+<h2 id="license">License</h2>
 <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
-<h2 id="introduction">1. Introduction:</h2>
+<h2 id="introduction">1. Introduction</h2>
 <p>Created by <a href="http://www.elbox.com">Elbox</a>, the Mediators are a range of PCI/Zorro busboards for Amiga computers. They allow users to install industry-standard PCI cards into their Amigas.</p>
 <p>There exist Mediators for:</p>
 <ul>
@@ -114,23 +114,23 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <ul>
 <li>Mediator 4000Di3 (Rev 3.0)</li>
 </ul>
-<h2 id="hardware">2. Hardware:</h2>
+<h2 id="hardware">2. Hardware</h2>
 <p>A Mediator typically consists of two main parts:</p>
 <ul>
 <li>A backplane board with slots for some combination of PCI and Zorro cards</li>
 <li>A bridge board which connects to both the PCI and Zorro busses, to translate between them</li>
 </ul>
 <p>The backplane board is generally very simple, it is really just a series of PCI and/or Zorro slots. The real magic of the Mediator happens on the bridge board. This board sits on both PCI and Zorro, and contains a series of chips (known as <em>MACH</em>) that translate between the protocols of PCI and Zorro, allowing the Amiga to communicate with the PCI cards and vice versa.</p>
-<h3 id="supported-pci-cards">2.1 Supported PCI cards:</h3>
+<h3 id="supported-pci-cards">2.1 Supported PCI cards</h3>
 <p>It's important to use cards which are supported. Unfortunately the list is quite small, partly because writing hardware drivers is not easy, partly because the Mediator Driver Development Kit is not publicly available.</p>
 <p>Elbox maintains a list of compatible cards <a href="http://www.elbox.com/mediator_driver_guide.html">on their website</a></p>
 <p>There are also one or two additional drivers <a href="http://aminet.net/search?name=mediator&amp;path%5B%5D=driver&amp;q_desc=OR&amp;desc=mediator">on Aminet</a></p>
-<h4 id="supported-voltages">2.1.1 Supported voltages:</h4>
+<h4 id="supported-voltages">2.1.1 Supported voltages</h4>
 <p>All Mediators support 5V PCI cards, but only some support 3.3V PCI cards. You can tell which voltages a PCI card works with, by looking at its edge connector. If it has a section cut out of the edge connector 5.6cm away from the backplate, it requires 3.3V. If it has a section cut out of the edge connector 10cm from the backplate, it requires 5V. Cards that have both sections cut out, work with either 3.3V or 5V. Some users have noticed that some PCI cards appear to be 5V compatible, but actually do require 3.3V.</p>
 <p>It is possible to modify 5V Mediators to supply 3.3V to cards that need it, by connecting a 3.3V supply to the appropriate PCI pins on the back of the Mediator busboard.<br />
 (If you would like to document the process here, please contact us!)</p>
 <p>It is also often possible to modify PCI cards to have their own voltage regulator (e.g. <code>LM1084</code>) to convert 5V to 3.3V on the card itself.</p>
-<h3 id="installation">2.2 Installation:</h3>
+<h3 id="installation">2.2 Installation</h3>
 <p>Obviously the installation for different Amigas varies widely, because of their different form factors. Specific information for various models can be found below, but the general steps are:</p>
 <ul>
 <li>Remove any existing Zorro busboards</li>
@@ -143,7 +143,7 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <li>Install other PCI cards</li>
 </ul>
 <p><em>NOTE:</em> Some users have reported that on some Mediators, the order of PCI cards is important, particularly the placement of the graphics card. Please contact us if you know more about this.</p>
-<h4 id="di">2.2.1 4000Di:</h4>
+<h4 id="di">2.2.1 4000Di</h4>
 <ul>
 <li>Remove the A4000 top cover</li>
 <li>Remove the hard disk cage</li>
@@ -158,7 +158,7 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <li>Hold the Mediator board along its top edge and push it firmly, but gently, into the motherboard slot</li>
 <li><strong>NOTE:</strong> As above, try to insert the card in one movement, rather than starting with one corner.</li>
 </ul>
-<h3 id="configuration">2.3 Configuration:</h3>
+<h3 id="configuration">2.3 Configuration</h3>
 <p>In terms of hardware configuration, Mediators generally have very little that needs to be done. They have a few jumpers and that's it. However, these jumpers are generally not documented well, and vary between models.</p>
 <h4 id="di-1">2.3.1 4000Di</h4>
 <p>This model has three jumpers:</p>
@@ -167,12 +167,12 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <li><strong>WINSIZE</strong>: This relates to how much memory space your PCI cards require. Since the only card that's likely to present memory to the system, is your graphics card, you can base the decision for this jumper on the amount of RAM on your graphics card. If it's less than 256MB, open this jumper. If it's 256MB or more, close this jumper.</li>
 <li><strong>SWAPCONFIG</strong>: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091 or X-Surf-100) or a Zorro 3 graphics card.</li>
 </ul>
-<h2 id="software">3. Software:</h2>
+<h2 id="software">3. Software</h2>
 <p>Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the <em>Mediator Multimedia CD</em> (generally known as <code>MMCD</code>).</p>
 <p><strong>NOTE:</strong> It's quite common for the CD supplied by Elbox to be significantly out of date, so always check <a href="http://www.elbox.com/downloads_mediator.html">their website</a> for a driver pack update (<code>MM_CD_UP</code>). However, even these update packs do not always contain the most recently available drivers/libraries. The same download page also lists individual updates that have been released (e.g. <code>pci.library</code>) and the dates. Ensure you have the latest versions of everything.</p>
-<h3 id="installation-1">3.1 Installation:</h3>
+<h3 id="installation-1">3.1 Installation</h3>
 <p>The Elbox installers are not particularly neat in their choices of where to install the software/drivers. If you are feeling particularly confident, you may choose to install the various components by hand, but we would suggest that at least your first time, you may want to use the Elbox installers:</p>
-<h4 id="general">3.1.1 General:</h4>
+<h4 id="general">3.1.1 General</h4>
 <ul>
 <li>Run the Installer from the <code>MMCD</code></li>
 <li>Run the Installer from the latest <code>MM_CD_UP</code> update, if applicable</li>
@@ -181,7 +181,7 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <p>Somewhat unusually for Amiga hardware, there is no device driver for the Mediator, instead, access to the PCI cards happens through <code>pci.library</code>. Once you have installed the drivers, open a shell and run <code>C:PCIInfo</code> and you should see a listing of any PCI cards you have installed (which ideally should just be the graphics card at this point).</p>
 <p><strong>NOTE:</strong> A graphics card is generally vital to the operation of a Mediator because of the RAM it provides. PCI cards are unable to access the Amiga's memory through the Zorro bus, so the Mediator drivers reserve a portion of the graphics card's memory for DMA operations with other cards. Thus, any card you install, which uses DMA (i.e. most cards), will only operate if there is a graphics card present.</p>
 <p><strong>FURTHER NOTE:</strong> The mere presence of a graphics card is not sufficient, Picasso96 must also be installed and configured to use the appropriate driver for your PCI graphics card. You don't have to be using an RTG screenmode through the graphics card, but without it at least having an active entry in <code>DEVS:Monitors/</code> most other PCI operations will not be possible.</p>
-<h4 id="graphics-card">3.1.2 Graphics card:</h4>
+<h4 id="graphics-card">3.1.2 Graphics card</h4>
 <p><strong>NOTE</strong>: These instructions are kept intentionally simple. For Radeon/Voodoo users, there are good installation guides in the <code>MMCD</code>/<code>MM_CD_UP</code>.</p>
 <ul>
 <li>Install Picasso96 2.1b (<a href="http://aminet.net/package/driver/video/Picasso96">from Aminet</a>) and choose the <code>Cybervision 3D</code> card.</li>
@@ -190,7 +190,7 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <li>Edit the tooltypes for the monitor</li>
 <li>Change the <code>BOARDTYPE</code> value to the name of the graphics card driver (which live in <code>LIBS:Picasso96/</code>), e.g. <code>Radeon</code></li>
 </ul>
-<h4 id="sound-card">3.1.3 Sound card:</h4>
+<h4 id="sound-card">3.1.3 Sound card</h4>
 <p>Assuming you ran the Elbox installer, it will have installed <code>AHI</code>, the Amiga's retargetable audio framework, several drivers, and a Mixer application. It seems as though Elbox installs AHI 4.21, but then also places some newer components on top of that install, so it may not be possible to easily recreate a known-good setup without using Elbox's installer. If you have set up AHI from scratch with a Mediator, please let us know (particularly if you have tested the latest version, 6.0).</p>
 <p>Your sound card will require some additional configuration:</p>
 <p><strong>NOTE:</strong> AHI is exposed to applications as a series of <code>unit</code>s. Each unit can be configured to send its audio to a soundcard of your choice, with quality settings of your choosing. For this section we will assume that you only have one soundcard, you will configure all your applications to use AHI unit 0, and you want the highest possible sound quality.</p>
@@ -206,7 +206,7 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 </ul>
 <p><strong>NOTE:</strong> The Mixer app supplied by Elbox is not very high quality (Elbox themselves recommend using a third party mixer). A good alternative is <a href="http://aminet.net/package/driver/audio/GhostMix">GhostMix</a>. You will need to remove the Elbox mixer item in <code>S:User-Startup</code> to use a different mixer application.</p>
 <p><strong>FURTHER NOTE:</strong> GhostMix does not create the required directory for its preferences. Either run the Elbox mixer once and <code>Save</code> the settings, or manually create a directory <code>ENVARC:Mediator/Mixer/</code></p>
-<h4 id="network-card">3.1.4 Network card:</h4>
+<h4 id="network-card">3.1.4 Network card</h4>
 <p>There are Mediator drivers for two Realtek chipsets, 8029 (10Mb/s) via <code>MediatorNET.device</code> and 8139 (100Mb/s) via <code>FastEthernet.device</code>. To use one of these, you'll need a TCP/IP stack installed, such as:</p>
 <ul>
 <li>Roadshow</li>
@@ -216,18 +216,18 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 </ul>
 <p>Of these, Roadshow is the newest and is often the fastest. The choice is yours, and configuring the stack is beyond the scope of this document.</p>
 <p>There is an environment variable for <code>RTL-8139</code> devices, <code>ENVARC:Mediator/FastEthernet</code> which controls how the Ethernet link should be configured, see Section 3.2 for more information.</p>
-<h4 id="usb-card">3.1.5 USB card:</h4>
+<h4 id="usb-card">3.1.5 USB card</h4>
 <p>TODO</p>
-<h4 id="tv-tuners">3.1.6 TV Tuners:</h4>
+<h4 id="tv-tuners">3.1.6 TV Tuners</h4>
 <p>Please contribute to this section if you have any useful information :)</p>
-<h4 id="scsi-cards">3.1.7 SCSI cards:</h4>
+<h4 id="scsi-cards">3.1.7 SCSI cards</h4>
 <p>Please contribute to this section if you have any useful information :)</p>
-<h4 id="serialparallel-cards">3.1.8 Serial/Parallel cards:</h4>
+<h4 id="serialparallel-cards">3.1.8 Serial/Parallel cards</h4>
 <p>Please contribute to this section if you have any useful information :)</p>
-<h4 id="mpeg-2-decoder-cards">3.1.9 MPEG 2 decoder cards:</h4>
+<h4 id="mpeg-2-decoder-cards">3.1.9 MPEG 2 decoder cards</h4>
 <p>Drivers for these cards have never been released.</p>
-<h3 id="configuration-1">3.2 Configuration:</h3>
-<h4 id="environment-variables">3.2.1 Environment Variables:</h4>
+<h3 id="configuration-1">3.2 Configuration</h3>
+<h4 id="environment-variables">3.2.1 Environment Variables</h4>
 <p>There are many Mediator environment variables which can be set in <code>ENVARC:Mediator/</code>:</p>
 <ul>
 <li><code>MMU</code>:
@@ -322,12 +322,12 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 </ul></li>
 </ul></li>
 </ul>
-<h3 id="versions">3.3 Versions:</h3>
+<h3 id="versions">3.3 Versions</h3>
 <p>Here we attempt to collect a definitive list of Mediator software versions. If you have any <code>MMCD</code> or <code>MM_CD_UP</code> versions not included here, please contact us :)<br />
 Most of the <code>MM_CD_UP</code> archives can be downloaded from <a href="http://www.elbox.com/">Elbox's website</a>, and many of them are included on the latest <code>MMCD</code> CDs.</p>
-<h4 id="mmcd">3.3.1 MMCD:</h4>
+<h4 id="mmcd">3.3.1 MMCD</h4>
 <p>The earliest version of <code>MMCD</code> that the authors currently have access to, is 2.0. The driver versions on this CD are the same as those shown in <code>MM_CD_UP</code> 2.0c below.</p>
-<h4 id="mm_cd_up">3.3.2 MM_CD_UP:</h4>
+<h4 id="mm_cd_up">3.3.2 MM_CD_UP</h4>
 <p><strong>NOTE:</strong> Bold indicates a version was updated. <em>N/A</em> indicates the file was not included.</p>
 <table>
 <thead>
@@ -503,7 +503,7 @@ Most of the <code>MM_CD_UP</code> archives can be downloaded from <a href="http:
 </tr>
 </tbody>
 </table>
-<h4 id="spider-ii-driver">3.3.3 Spider II Driver:</h4>
+<h4 id="spider-ii-driver">3.3.3 Spider II Driver</h4>
 <p>This driver is distributed separately from <code>MMCD</code>, although <code>spider.device</code> 3.20 appeared in <code>MM_CD_UP</code> 2.0c.</p>
 <p>The <code>Spider II USB 2.0</code> CD includes <code>spider.device</code> 3.22.</p>
 </body>
