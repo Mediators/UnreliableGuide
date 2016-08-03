@@ -1,9 +1,9 @@
 # The Unreliable Mediator Guide
 
-## Version:
+## Version
 0.2 - 2016-08-03
 
-## Authors:
+## Authors
  * Chris Jones <cmsj@tenshu.net> (current maintainer)
 
 If you have a Mediator, or know about them, and either disagree with something in this guide, or have some extra information you'd like to add, please do contact us. We want this document to grow to cover as much detail about Mediators as possible!
@@ -23,16 +23,16 @@ There are threads on the main Amiga forums for any discussions you want to have 
 
 You can also discuss the guide on the [Amiga-Mediator Yahoo Group](https://groups.yahoo.com/neo/groups/Amiga-Mediator/info)
 
-## Contributions:
+## Contributions
 To write this guide, we have drawn extensively on the help and writings of other people. Specific thanks to:
 
  * Mech
  * grelbfarlk
 
-## License:
+## License
 This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
 
-## 1. Introduction:
+## 1. Introduction
 Created by [Elbox](http://www.elbox.com), the Mediators are a range of PCI/Zorro busboards for Amiga computers. They allow users to install industry-standard PCI cards into their Amigas.
 
 There exist Mediators for:
@@ -47,7 +47,7 @@ Various models and revisions of Mediators have existed since their initial relea
 
  * Mediator 4000Di3 (Rev 3.0)
 
-## 2. Hardware:
+## 2. Hardware
 A Mediator typically consists of two main parts:
 
  * A backplane board with slots for some combination of PCI and Zorro cards
@@ -55,14 +55,14 @@ A Mediator typically consists of two main parts:
 
 The backplane board is generally very simple, it is really just a series of PCI and/or Zorro slots. The real magic of the Mediator happens on the bridge board. This board sits on both PCI and Zorro, and contains a series of chips (known as *MACH*) that translate between the protocols of PCI and Zorro, allowing the Amiga to communicate with the PCI cards and vice versa.
 
-### 2.1 Supported PCI cards:
+### 2.1 Supported PCI cards
 It's important to use cards which are supported. Unfortunately the list is quite small, partly because writing hardware drivers is not easy, partly because the Mediator Driver Development Kit is not publicly available.
 
 Elbox maintains a list of compatible cards [on their website](http://www.elbox.com/mediator_driver_guide.html)
 
 There are also one or two additional drivers [on Aminet](http://aminet.net/search?name=mediator&path[]=driver&q_desc=OR&desc=mediator)
 
-#### 2.1.1 Supported voltages:
+#### 2.1.1 Supported voltages
 All Mediators support 5V PCI cards, but only some support 3.3V PCI cards. You can tell which voltages a PCI card works with, by looking at its edge connector. If it has a section cut out of the edge connector 5.6cm away from the backplate, it requires 3.3V. If it has a section cut out of the edge connector 10cm from the backplate, it requires 5V. Cards that have both sections cut out, work with either 3.3V or 5V. Some users have noticed that some PCI cards appear to be 5V compatible, but actually do require 3.3V.
 
 It is possible to modify 5V Mediators to supply 3.3V to cards that need it, by connecting a 3.3V supply to the appropriate PCI pins on the back of the Mediator busboard.
@@ -70,7 +70,7 @@ It is possible to modify 5V Mediators to supply 3.3V to cards that need it, by c
 
 It is also often possible to modify PCI cards to have their own voltage regulator (e.g. `LM1084`) to convert 5V to 3.3V on the card itself.
 
-### 2.2 Installation:
+### 2.2 Installation
 Obviously the installation for different Amigas varies widely, because of their different form factors. Specific information for various models can be found below, but the general steps are:
 
  * Remove any existing Zorro busboards
@@ -84,7 +84,7 @@ Obviously the installation for different Amigas varies widely, because of their 
 
 *NOTE:* Some users have reported that on some Mediators, the order of PCI cards is important, particularly the placement of the graphics card. Please contact us if you know more about this.
 
-#### 2.2.1 4000Di:
+#### 2.2.1 4000Di
 
   * Remove the A4000 top cover
   * Remove the hard disk cage
@@ -99,7 +99,7 @@ Obviously the installation for different Amigas varies widely, because of their 
   * Hold the Mediator board along its top edge and push it firmly, but gently, into the motherboard slot
    * **NOTE:** As above, try to insert the card in one movement, rather than starting with one corner.
 
-### 2.3 Configuration:
+### 2.3 Configuration
 In terms of hardware configuration, Mediators generally have very little that needs to be done. They have a few jumpers and that's it. However, these jumpers are generally not documented well, and vary between models.
 
 #### 2.3.1 4000Di
@@ -109,15 +109,15 @@ This model has three jumpers:
  * **WINSIZE**: This relates to how much memory space your PCI cards require. Since the only card that's likely to present memory to the system, is your graphics card, you can base the decision for this jumper on the amount of RAM on your graphics card. If it's less than 256MB, open this jumper. If it's 256MB or more, close this jumper.
  * **SWAPCONFIG**: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091 or X-Surf-100) or a Zorro 3 graphics card.
 
-## 3. Software:
+## 3. Software
 Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the *Mediator Multimedia CD* (generally known as `MMCD`).
 
 **NOTE:** It's quite common for the CD supplied by Elbox to be significantly out of date, so always check [their website](http://www.elbox.com/downloads_mediator.html) for a driver pack update (`MM_CD_UP`). However, even these update packs do not always contain the most recently available drivers/libraries. The same download page also lists individual updates that have been released (e.g. `pci.library`) and the dates. Ensure you have the latest versions of everything.
 
-### 3.1 Installation:
+### 3.1 Installation
 The Elbox installers are not particularly neat in their choices of where to install the software/drivers. If you are feeling particularly confident, you may choose to install the various components by hand, but we would suggest that at least your first time, you may want to use the Elbox installers:
 
-#### 3.1.1 General:
+#### 3.1.1 General
  * Run the Installer from the `MMCD`
  * Run the Installer from the latest `MM_CD_UP` update, if applicable
  * Manually copy any newer drivers/libraries you found on Elbox's site, into the appropriate locations on your system
@@ -128,7 +128,7 @@ Somewhat unusually for Amiga hardware, there is no device driver for the Mediato
 
 **FURTHER NOTE:** The mere presence of a graphics card is not sufficient, Picasso96 must also be installed and configured to use the appropriate driver for your PCI graphics card. You don't have to be using an RTG screenmode through the graphics card, but without it at least having an active entry in `DEVS:Monitors/` most other PCI operations will not be possible.
 
-#### 3.1.2 Graphics card:
+#### 3.1.2 Graphics card
 
 **NOTE**: These instructions are kept intentionally simple. For Radeon/Voodoo users, there are good installation guides in the `MMCD`/`MM_CD_UP`.
 
@@ -138,7 +138,7 @@ Somewhat unusually for Amiga hardware, there is no device driver for the Mediato
  * Edit the tooltypes for the monitor
  * Change the `BOARDTYPE` value to the name of the graphics card driver (which live in `LIBS:Picasso96/`), e.g. `Radeon`
 
-#### 3.1.3 Sound card:
+#### 3.1.3 Sound card
 Assuming you ran the Elbox installer, it will have installed `AHI`, the Amiga's retargetable audio framework, several drivers, and a Mixer application. It seems as though Elbox installs AHI 4.21, but then also places some newer components on top of that install, so it may not be possible to easily recreate a known-good setup without using Elbox's installer. If you have set up AHI from scratch with a Mediator, please let us know (particularly if you have tested the latest version, 6.0).
 
 Your sound card will require some additional configuration:
@@ -158,7 +158,7 @@ Your sound card will require some additional configuration:
 
 **FURTHER NOTE:** GhostMix does not create the required directory for its preferences. Either run the Elbox mixer once and `Save` the settings, or manually create a directory `ENVARC:Mediator/Mixer/`
 
-#### 3.1.4 Network card:
+#### 3.1.4 Network card
 There are Mediator drivers for two Realtek chipsets, 8029 (10Mb/s) via `MediatorNET.device` and 8139 (100Mb/s) via `FastEthernet.device`. To use one of these, you'll need a TCP/IP stack installed, such as:
 
  * Roadshow
@@ -170,29 +170,29 @@ Of these, Roadshow is the newest and is often the fastest. The choice is yours, 
 
 There is an environment variable for `RTL-8139` devices, `ENVARC:Mediator/FastEthernet` which controls how the Ethernet link should be configured, see Section 3.2 for more information.
 
-#### 3.1.5 USB card:
+#### 3.1.5 USB card
 
 TODO
 
-#### 3.1.6 TV Tuners:
+#### 3.1.6 TV Tuners
 
 Please contribute to this section if you have any useful information :)
 
-#### 3.1.7 SCSI cards:
+#### 3.1.7 SCSI cards
 
 Please contribute to this section if you have any useful information :)
 
-#### 3.1.8 Serial/Parallel cards:
+#### 3.1.8 Serial/Parallel cards
 
 Please contribute to this section if you have any useful information :)
 
-#### 3.1.9 MPEG 2 decoder cards:
+#### 3.1.9 MPEG 2 decoder cards
 
 Drivers for these cards have never been released.
 
-### 3.2 Configuration:
+### 3.2 Configuration
 
-#### 3.2.1 Environment Variables:
+#### 3.2.1 Environment Variables
 There are many Mediator environment variables which can be set in `ENVARC:Mediator/`:
 
  * `MMU`:
@@ -253,16 +253,16 @@ There are many Mediator environment variables which can be set in `ENVARC:Mediat
          * `3` - 10Mb/s Full Duplex
          * `4` - 10Mb/s Half Duplex
 
-### 3.3 Versions:
+### 3.3 Versions
 
 Here we attempt to collect a definitive list of Mediator software versions. If you have any `MMCD` or `MM_CD_UP` versions not included here, please contact us :)
 Most of the `MM_CD_UP` archives can be downloaded from [Elbox's website](http://www.elbox.com/), and many of them are included on the latest `MMCD` CDs.
 
-#### 3.3.1 MMCD:
+#### 3.3.1 MMCD
 
 The earliest version of `MMCD` that the authors currently have access to, is 2.0. The driver versions on this CD are the same as those shown in `MM_CD_UP` 2.0c below.
 
-#### 3.3.2 MM_CD_UP:
+#### 3.3.2 MM_CD_UP
 
 **NOTE:** Bold indicates a version was updated. *N/A* indicates the file was not included.
 
@@ -282,7 +282,7 @@ The earliest version of `MMCD` that the authors currently have access to, is 2.0
 | `tv.library`          | 4.13     | 4.13     | 4.13     | 4.13     | 4.13     | **4.13** | **4.9**  | **4.6**  | 4.0  |
 | `tv.vhi`              | 1.5      | 1.5      | 1.5      | 1.5      | 1.5      | **1.5**  | 1.4      | **1.4**  | 1.3  |
 
-#### 3.3.3 Spider II Driver:
+#### 3.3.3 Spider II Driver
 
 This driver is distributed separately from `MMCD`, although `spider.device` 3.20 appeared in `MM_CD_UP` 2.0c.
 
