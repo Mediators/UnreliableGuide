@@ -21,6 +21,8 @@ There are threads on the main Amiga forums for any discussions you want to have 
  * [Amiga.org](http://www.amiga.org/forums/showthread.php?p=811379)
  * [AmigaWorld](http://amigaworld.net/modules/newbb/viewtopic.php?topic_id=41251&start=0&post_id=785207&order=0&viewmode=thread&pid=0&forum=25#785207)
 
+You can also discuss the guide on the [Amiga-Mediator Yahoo Group](https://groups.yahoo.com/neo/groups/Amiga-Mediator/info)
+
 ## Contributions:
 To write this guide, we have drawn extensively on the help and writings of other people. Specific thanks to:
 
