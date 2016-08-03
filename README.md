@@ -8,7 +8,8 @@
 
 If you have a Mediator, or know about them, and either disagree with something in this guide, or have some extra information you'd like to add, please do contact us. We want this document to grow to cover as much detail about Mediators as possible!
 
-The canonical home of the guide is: [https://mediators.github.io](https://mediators.github.io) ([https://mediators.github.io/TUMG.pdf](also available as a PDF)
+The canonical home of the guide is: [https://mediators.github.io](https://mediators.github.io)
+A nicely formatted PDF version is available from: [https://mediators.github.io/TUMG.pdf](https://mediators.github.io/TUMG.pdf)
 
 The source of the project lives at: [https://github.com/Mediators/UnreliableGuide](https://github.com/Mediators/UnreliableGuide)
 
