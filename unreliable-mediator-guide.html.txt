@@ -70,6 +70,7 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <li><a href="http://www.amiga.org/forums/showthread.php?p=811379">Amiga.org</a></li>
 <li><a href="http://amigaworld.net/modules/newbb/viewtopic.php?topic_id=41251&amp;start=0&amp;post_id=785207&amp;order=0&amp;viewmode=thread&amp;pid=0&amp;forum=25#785207">AmigaWorld</a></li>
 </ul>
+<p>You can also discuss the guide on the <a href="https://groups.yahoo.com/neo/groups/Amiga-Mediator/info">Amiga-Mediator Yahoo Group</a></p>
 <h2 id="contributions">Contributions:</h2>
 <p>To write this guide, we have drawn extensively on the help and writings of other people. Specific thanks to:</p>
 <ul>
