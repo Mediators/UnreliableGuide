@@ -216,14 +216,14 @@ There are many Mediator environment variables which can be set in `ENVARC:Mediat
      * **NOTE:** The highest `1MB` of Radeon RAM is always reserved for DMA with other PCI cards
  * `RadeonMemOS`:
      * If set to `Yes`, unused Radeon RAM will be added to the system memory
-     * Note that even though the RAM is high performance graphics RAM, the CPU can only access it at Zorro 3 speeds (i.e. a maximum of around `14MB/s`) which is considerably slower than RAM which is directly on your accelerator board (if possible).
+     * Note that even though the RAM is high performance graphics RAM, your CPU can only access it at Zorro 3 speeds (i.e. a maximum of around `14MB/s`). If your CPU accelerator card has RAM slots, they will be considerably faster than this.
  * `VoodooMem`:
      * This controls how much of a Voodoo's RAM is kept for Picasso 96
      * Any leftover RAM can be used for system memory (see `VoodooMemOS`)
      * **NOTE:** The highest `1MB` of Radeon RAM is always reserved for DMA with other PCI cards
  * `VoodooMemOS`:
      * If set to `Yes`, unused Voodoo RAM will be added to the system memory
-     * Note that even though the RAM is high performance graphics RAM, the CPU can only access it at Zorro 3 speeds (i.e. a maximum of around `14MB/s`) which is considerably slower than RAM which is directly on your accelerator board (if possible).
+     * Note that even though the RAM is high performance graphics RAM, your CPU can only access it at Zorro 3 speeds (i.e. a maximum of around `14MB/s`). If your CPU accelerator card has RAM slots, they will be considerably faster than this.
  * `VoodooInt`:
      * This controls the Voodoo vertical blanking interrupt
      * If set to `Yes`, interrupts are generated during VBlank, which may be required for some games
@@ -249,4 +249,39 @@ There are many Mediator environment variables which can be set in `ENVARC:Mediat
          * `2` - 100Mb/s Half Duplex
          * `3` - 10Mb/s Full Duplex
          * `4` - 10Mb/s Half Duplex
+
+### 3.3 Versions:
+
+Here we attempt to collect a definitive list of Mediator software versions. If you have any `MMCD` or `MM_CD_UP` versions not included here, please contact us :)
+Most of the `MM_CD_UP` archives can be downloaded from [http://www.elbox.com/](Elbox's website), and many of them are included on the latest `MMCD` CDs.
+
+#### 3.3.1 MMCD:
+
+The earliest version of `MMCD` that the authors currently have access to, is 2.0. The driver versions on this CD are the same as those shown in `MM_CD_UP` 2.0c below.
+
+#### 3.3.2 MM_CD_UP:
+
+**NOTE:** Bold indicates a version was updated. *N/A* indicates the file was not included.
+
+| File                  | 2.5      | 2.4      | 2.3      | 2.2      | 2.1      | 2.0c     | 1.31     | 1.28     | 1.26 |
+|-----------------------|----------|----------|----------|----------|----------|----------|----------|----------|------|
+| `C/SBMixer`           | 1.4      | 1.4      | 1.4      | 1.4      | 1.4      | 1.4      | 1.4      | 1.4      | 1.4  |
+| `C/TV`                | 1.4      | 1.4      | 1.4      | 1.4      | 1.4      | 1.4      | 1.4      | 1.4      | 1.4  |
+| `fm801.audio`         | 4.14     | 4.14     | 4.14     | 4.14     | 4.14     | **4.14** | **4.12** | **4.10** | 4.5  |
+| `sb128.audio`         | 4.20     | 4.20     | 4.20     | 4.20     | 4.20     | **4.20** | **4.18** | **4.16** | 4.11 |
+| `FastEthernet.device` | 1.25     | 1.25     | 1.25     | 1.25     | **1.25** | **1.24** | **1.21** | **1.20** | 1.15 |
+| `MediatorNET.device`  | 2.10     | 2.10     | 2.10     | 2.10     | 2.10     | **2.10** | N/A      | N/A      | N/A  |
+| `mixer.library`       | 1.11     | 1.11     | 1.11     | 1.11     | 1.11     | **1.11** | 1.10     | **1.10** | 1.9  |
+| `pci.library`         | 9.11     | **9.11** | **9.10** | **9.9**  | **9.7**  | **9.4**  | N/A      | N/A      | N/A  |
+| `Radeon.card`         | **2.23** | **2.22** | **2.20** | **2.19** | 2.12     | **2.12** | **1.7**  | **1.0**  | N/A  |
+| `Virge.card`          | 1.13     | 1.13     | 1.13     | 1.13     | **1.13** | **1.12** | N/A      | N/A      | N/A  |
+| `Voodoo.card`         | **4.35** | 4.34     | **4.34** | 4.30     | 4.30     | **4.30** | **4.28** | **4.27** | 4.23 |
+| `tv.library`          | 4.13     | 4.13     | 4.13     | 4.13     | 4.13     | **4.13** | **4.9**  | **4.6**  | 4.0  |
+| `tv.vhi`              | 1.5      | 1.5      | 1.5      | 1.5      | 1.5      | **1.5**  | 1.4      | **1.4**  | 1.3  |
+
+#### 3.3.3 Spider II Driver:
+
+This driver is distributed separately from `MMCD`, although `spider.device` 3.20 appeared in `MM_CD_UP` 2.0c.
+
+The `Spider II USB 2.0` CD includes `spider.device` 3.22.
 
