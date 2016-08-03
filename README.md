@@ -180,7 +180,9 @@ Please contribute to this section if you have any useful information :)
 
 #### 3.1.7 SCSI cards
 
-Please contribute to this section if you have any useful information :)
+There is a [driver on Aminet](http://aminet.net/package/driver/media/aic78xx.device) that allows you to use certain Adaptec SCSI cards. Depending on your card's connectors, you will be able to attach up to 14 SCSI devices to the various SCSI connectors on the card (usually 50pin internal, 68pin internal and 68pin external, of which any two can be in use at the same time).
+
+**NOTE:** Even though these cards are capable of high speed data transfer (around 40MB/s), in a Mediator they are limited by the overheads of being moving data from the SCSI card to graphics card RAM, and from there across the Zorro3 bus to the Amiga's CPU (and vice versa). This means that SCSI devices attached to the Adaptec card will actually only operate at around 3MB/s (i.e. roughly equivalent to the A1200/A4000 internal IDE).
 
 #### 3.1.8 Serial/Parallel cards
 

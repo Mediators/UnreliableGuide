@@ -221,7 +221,8 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <h4 id="tv-tuners">3.1.6 TV Tuners</h4>
 <p>Please contribute to this section if you have any useful information :)</p>
 <h4 id="scsi-cards">3.1.7 SCSI cards</h4>
-<p>Please contribute to this section if you have any useful information :)</p>
+<p>There is a <a href="http://aminet.net/package/driver/media/aic78xx.device">driver on Aminet</a> that allows you to use certain Adaptec SCSI cards. Depending on your card's connectors, you will be able to attach up to 14 SCSI devices to the various SCSI connectors on the card (usually 50pin internal, 68pin internal and 68pin external, of which any two can be in use at the same time).</p>
+<p><strong>NOTE:</strong> Even though these cards are capable of high speed data transfer (around 40MB/s), in a Mediator they are limited by the overheads of being moving data from the SCSI card to graphics card RAM, and from there across the Zorro3 bus to the Amiga's CPU (and vice versa). This means that SCSI devices attached to the Adaptec card will actually only operate at around 3MB/s (i.e. roughly equivalent to the A1200/A4000 internal IDE).</p>
 <h4 id="serialparallel-cards">3.1.8 Serial/Parallel cards</h4>
 <p>Please contribute to this section if you have any useful information :)</p>
 <h4 id="mpeg-2-decoder-cards">3.1.9 MPEG 2 decoder cards</h4>
