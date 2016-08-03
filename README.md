@@ -1,7 +1,7 @@
 # The Unreliable Mediator Guide
 
 ## Version:
-0.2 - 2016-08-03 (git revision $Id$)
+0.2 - 2016-08-03
 
 ## Authors:
  * Chris Jones <cmsj@tenshu.net> (current maintainer)
