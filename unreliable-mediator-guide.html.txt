@@ -137,33 +137,33 @@
 <ul>
 <li><strong>MASTER</strong>: This is for using the Mediator with the (unreleased) Elbox SharkPPC card. The jumper should always remain closed unless you have one of these mythical cards (which you almost certainly do not).</li>
 <li><strong>WINSIZE</strong>: This relates to how much memory space your PCI cards require. Since the only card that's likely to present memory to the system, is your graphics card, you can base the decision for this jumper on the amount of RAM on your graphics card. If it's less than 256MB, open this jumper. If it's 256MB or more, close this jumper.</li>
-<li><strong>SWAPCONFIG</strong>: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091 or X-Surf-100) or a Zorro 3 graphics card).</li>
+<li><strong>SWAPCONFIG</strong>: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091 or X-Surf-100) or a Zorro 3 graphics card.</li>
 </ul>
 <h2 id="software">3. Software:</h2>
-<p>Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the <em>Mediator Multimedia CD</em> (generally known as <em>MMCD</em>).</p>
-<p><strong>NOTE:</strong> It's quite common for the CD supplied by Elbox to be significantly out of date, so always check <a href="http://www.elbox.com/downloads_mediator.html">their website</a> for a driver pack update (<em>MM_CD_UP</em>). However, even these update packs do not always contain the most recently available drivers/libraries. The same download page also lists individual updates that have been released (e.g. pci.library) and the dates. Ensure you have the latest versions of everything.</p>
+<p>Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the <em>Mediator Multimedia CD</em> (generally known as <code>MMCD</code>).</p>
+<p><strong>NOTE:</strong> It's quite common for the CD supplied by Elbox to be significantly out of date, so always check <a href="http://www.elbox.com/downloads_mediator.html">their website</a> for a driver pack update (<code>MM_CD_UP</code>). However, even these update packs do not always contain the most recently available drivers/libraries. The same download page also lists individual updates that have been released (e.g. <code>pci.library</code>) and the dates. Ensure you have the latest versions of everything.</p>
 <h3 id="installation-1">3.1 Installation:</h3>
 <p>The Elbox installers are not particularly neat in their choices of where to install the software/drivers. If you are feeling particularly confident, you may choose to install the various components by hand, but we would suggest that at least your first time, you may want to use the Elbox installers:</p>
 <h4 id="general">3.1.1 General:</h4>
 <ul>
-<li>Run the Installer from the MMCD</li>
-<li>Run the Installer from the latest MM_CD_UP update, if applicable</li>
+<li>Run the Installer from the <code>MMCD</code></li>
+<li>Run the Installer from the latest <code>MM_CD_UP</code> update, if applicable</li>
 <li>Manually copy any newer drivers/libraries you found on Elbox's site, into the appropriate locations on your system</li>
 </ul>
 <p>Somewhat unusually for Amiga hardware, there is no device driver for the Mediator, instead, access to the PCI cards happens through <code>pci.library</code>. Once you have installed the drivers, open a shell and run <code>C:PCIInfo</code> and you should see a listing of any PCI cards you have installed (which ideally should just be the graphics card at this point).</p>
 <p><strong>NOTE:</strong> A graphics card is generally vital to the operation of a Mediator because of the RAM it provides. PCI cards are unable to access the Amiga's memory through the Zorro bus, so the Mediator drivers reserve a portion of the graphics card's memory for DMA operations with other cards. Thus, any card you install, which uses DMA (i.e. most cards), will only operate if there is a graphics card present.</p>
 <p><strong>FURTHER NOTE:</strong> The mere presence of a graphics card is not sufficient, Picasso96 must also be installed and configured to use the appropriate driver for your PCI graphics card. You don't have to be using an RTG screenmode through the graphics card, but without it at least having an active entry in <code>DEVS:Monitors/</code> most other PCI operations will not be possible.</p>
 <h4 id="graphics-card">3.1.2 Graphics card:</h4>
-<p><strong>NOTE</strong>: These instructions are kept intentionally simple. For Radeon/Voodoo users, there are good installation guides in the MMCD/MM_CD_UP.</p>
+<p><strong>NOTE</strong>: These instructions are kept intentionally simple. For Radeon/Voodoo users, there are good installation guides in the <code>MMCD</code>/<code>MM_CD_UP</code>.</p>
 <ul>
-<li>Install Picasso96 2.1b (<a href="http://aminet.net/package/driver/video/Picasso96">from Aminet</a>) and choose the <em>Cybervision 3D</em> card.</li>
+<li>Install Picasso96 2.1b (<a href="http://aminet.net/package/driver/video/Picasso96">from Aminet</a>) and choose the <code>Cybervision 3D</code> card.</li>
 <li>Once the installation is complete, open <code>DEVS:Monitors/</code></li>
 <li>Rename the <code>CVision3D</code> monitor to <code>Radeon</code> or <code>Voodoo</code> (or some other suitable name for your PCI graphics card)</li>
 <li>Edit the tooltypes for the monitor</li>
 <li>Change the <code>BOARDTYPE</code> value to the name of the graphics card driver (which live in <code>LIBS:Picasso96/</code>), e.g. <code>Radeon</code></li>
 </ul>
 <h4 id="sound-card">3.1.3 Sound card:</h4>
-<p>Assuming you ran the Elbox installer, it will have installed <code>AHI</code>, the Amiga's retargetable audio framework, and several drivers, and a Mixer application. It seems as though Elbox installs AHI 4.21, but then also places some newer components on top of that install, so it may not be possible to easily recreate a known-good setup without using Elbox's installer. If you have set up AHI from scratch with a Mediator, please let us know (particularly if you have tested the latest version, 6.0).</p>
+<p>Assuming you ran the Elbox installer, it will have installed <code>AHI</code>, the Amiga's retargetable audio framework, several drivers, and a Mixer application. It seems as though Elbox installs AHI 4.21, but then also places some newer components on top of that install, so it may not be possible to easily recreate a known-good setup without using Elbox's installer. If you have set up AHI from scratch with a Mediator, please let us know (particularly if you have tested the latest version, 6.0).</p>
 <p>Your sound card will require some additional configuration:</p>
 <p><strong>NOTE:</strong> AHI is exposed to applications as a series of <code>unit</code>s. Each unit can be configured to send its audio to a soundcard of your choice, with quality settings of your choosing. For this section we will assume that you only have one soundcard, you will configure all your applications to use AHI unit 0, and you want the highest possible sound quality.</p>
 <ul>
@@ -177,6 +177,7 @@
 <li>The soundcard likely defaults to zero volume when it is initialiesd, so you'll need an audio mixer application to save some sensible values and load them at startup. The Elbox installer will have created <code>SYS:Prefs/Mixer</code> for changing mixer settings, and a corresponding entry in <code>S:User-Startup</code> to load the values at boot.</li>
 </ul>
 <p><strong>NOTE:</strong> The Mixer app supplied by Elbox is not very high quality (Elbox themselves recommend using a third party mixer). A good alternative is <a href="http://aminet.net/package/driver/audio/GhostMix">GhostMix</a>. You will need to remove the Elbox mixer item in <code>S:User-Startup</code> to use a different mixer application.</p>
+<p><strong>FURTHER NOTE:</strong> GhostMix does not create the required directory for its preferences. Either run the Elbox mixer once and <code>Save</code> the settings, or manually create a directory <code>ENVARC:Mediator/Mixer/</code></p>
 <h4 id="network-card">3.1.4 Network card:</h4>
 <p>There are Mediator drivers for two Realtek chipsets, 8029 (10Mb/s) via <code>MediatorNET.device</code> and 8139 (100Mb/s) via <code>FastEthernet.device</code>. To use one of these, you'll need a TCP/IP stack installed, such as:</p>
 <ul>
@@ -196,32 +197,32 @@
 <h4 id="serialparallel-cards">3.1.8 Serial/Parallel cards:</h4>
 <p>Please contribute to this section if you have any useful information :)</p>
 <h4 id="mpeg-2-decoder-cards">3.1.9 MPEG 2 decoder cards:</h4>
-<p>Please contribute to this section if you have any useful information :)</p>
+<p>Drivers for these cards have never been released.</p>
 <h3 id="configuration-1">3.2 Configuration:</h3>
 <h4 id="environment-variables">3.2.1 Environment Variables:</h4>
 <p>There are many Mediator environment variables which can be set in <code>ENVARC:Mediator/</code>:</p>
 <ul>
-<li>MMU:
+<li><code>MMU</code>:
 <ul>
 <li>This only applies to A1200 Mediators</li>
 <li>If set to <code>Yes</code>, maps the PCI memory space into the processor's memory space.</li>
 <li>Must be set to <code>No</code> if you have a BlizzardPPC and want to use PCI resources with both of its CPUs.</li>
 </ul></li>
-<li>NoCache:
+<li><code>NoCache</code>:
 <ul>
 <li>This only applies to A1200 Mediators with 68030/MMU processors.</li>
 <li>If set to <code>Yes</code>, Mediator PCI space is not cacheable.</li>
 </ul></li>
-<li>Emulation:
+<li><code>Emulation</code>:
 <ul>
 <li>This only applies to A1200 Mediators with a BlizzardPPC.</li>
 <li>Set to <code>Yes</code> if you are running AmigaOS 4.</li>
 </ul></li>
-<li>Warp3D:
+<li><code>Warp3D</code>:
 <ul>
 <li>This should no longer be necessary, set to <code>No</code>.</li>
 </ul></li>
-<li>SpiderBuf:
+<li><code>SpiderBuf</code>:
 <ul>
 <li>This controls how much RAM is allocated for USB card DMA buffers</li>
 <li>The value is a number which will be used as a multiple of <code>40KB</code></li>
@@ -229,67 +230,67 @@
 <li>The highest possible value is <code>51</code> (i.e. just over <code>2MB</code> of DMA buffers)</li>
 <li>If you have information about the performance of different settings here, please contact us :)</li>
 </ul></li>
-<li>RadeonMem:
+<li><code>RadeonMem</code>:
 <ul>
 <li>This controls how much of a Radeon's RAM is kept for Picasso96</li>
 <li>Any leftover RAM can be used for system memory (see <code>RadeonMemOS</code>)</li>
 <li><strong>NOTE:</strong> The highest <code>1MB</code> of Radeon RAM is always reserved for DMA with other PCI cards</li>
 </ul></li>
-<li>RadeonMemOS:
+<li><code>RadeonMemOS</code>:
 <ul>
 <li>If set to <code>Yes</code>, unused Radeon RAM will be added to the system memory</li>
 <li>Note that even though the RAM is high performance graphics RAM, the CPU can only access it at Zorro 3 speeds (i.e. a maximum of around <code>14MB/s</code>) which is considerably slower than RAM which is directly on your accelerator board (if possible).</li>
 </ul></li>
-<li>VoodooMem:
+<li><code>VoodooMem</code>:
 <ul>
 <li>This controls how much of a Voodoo's RAM is kept for Picasso 96</li>
 <li>Any leftover RAM can be used for system memory (see <code>VoodooMemOS</code>)</li>
 <li><strong>NOTE:</strong> The highest <code>1MB</code> of Radeon RAM is always reserved for DMA with other PCI cards</li>
 </ul></li>
-<li>VoodooMemOS -
+<li><code>VoodooMemOS</code>:
 <ul>
 <li>If set to <code>Yes</code>, unused Voodoo RAM will be added to the system memory</li>
 <li>Note that even though the RAM is high performance graphics RAM, the CPU can only access it at Zorro 3 speeds (i.e. a maximum of around <code>14MB/s</code>) which is considerably slower than RAM which is directly on your accelerator board (if possible).</li>
 </ul></li>
-<li>VoodooInt:
+<li><code>VoodooInt</code>:
 <ul>
 <li>This controls the Voodoo vertical blanking interrupt</li>
 <li>If set to <code>Yes</code>, interrupts are generated during VBlank, which may be required for some games</li>
 <li>If set to <code>No</code>, interrupts are not generated during VBlank</li>
 </ul></li>
-<li>VirgeMem:
+<li><code>VirgeMem</code>:
 <ul>
 <li>This controls how much of an S3 Virge's RAM is kept for Picasso 96</li>
 </ul></li>
-<li>VirgeInt:
+<li><code>VirgeInt</code>:
 <ul>
 <li>This controls the S3 Virge vertical blanking interrupt</li>
 <li>If set to <code>Yes</code>, interrupts are generated during VBlank, which may be required for some games</li>
 <li>If set to <code>No</code>, interrupts are not generated during VBlank</li>
 </ul></li>
-<li>Buster:
+<li><code>Buster</code>:
 <ul>
 <li>This applies only to A3000 and A4000 (and Tower variants)</li>
-<li>You should set this to the version of Buster chip installed in your Amiga</li>
+<li>You should set this to the version of Buster chip installed in your Amiga (<code>7</code>, <code>9</code> or <code>11</code>)</li>
 </ul></li>
-<li>Tuner:
+<li><code>Tuner</code>:
 <ul>
 <li>If you have any information about this variable, please contact us :)</li>
 </ul></li>
-<li>Background:
+<li><code>Background</code>:
 <ul>
 <li>This defines a color of background which will be replaced by TV, if you're showing TV on the background</li>
 <li>Defaults to <code>RED=170 GREEN=170 BLUE=170</code> (which is the Workbench default grey)</li>
 </ul></li>
-<li>FastEthernet:
+<li><code>FastEthernet</code>:
 <ul>
 <li>This controls the Ethernet link negotiation of <code>RTL8139</code> devices. The possible values are:
 <ul>
-<li>0 - Auto Negotiation</li>
-<li>1 - 100Mb/s Full Duplex</li>
-<li>2 - 100Mb/s Half Duplex</li>
-<li>3 - 10Mb/s Full Duplex</li>
-<li>4 - 10Mb/s Half Duplex</li>
+<li><code>0</code> - Auto Negotiation</li>
+<li><code>1</code> - 100Mb/s Full Duplex</li>
+<li><code>2</code> - 100Mb/s Half Duplex</li>
+<li><code>3</code> - 10Mb/s Full Duplex</li>
+<li><code>4</code> - 10Mb/s Half Duplex</li>
 </ul></li>
 </ul></li>
 </ul>
