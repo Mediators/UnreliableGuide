@@ -105,9 +105,16 @@ In terms of hardware configuration, Mediators generally have very little that ne
 #### 2.3.1 4000Di
 This model has three jumpers:
 
- * **MASTER**: This is for using the Mediator with the (unreleased) Elbox SharkPPC card. The jumper should always remain closed unless you have one of these mythical cards (which you almost certainly do not).
- * **WINSIZE**: This relates to how much memory space your PCI cards require. Since the only card that's likely to present memory to the system, is your graphics card, you can base the decision for this jumper on the amount of RAM on your graphics card. If it's less than 256MB, open this jumper. If it's 256MB or more, close this jumper.
- * **SWAPCONFIG**: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091 or X-Surf-100) or a Zorro 3 graphics card.
+ * **MASTER**: This is for using the Mediator with the (unreleased) Elbox SharkPPC card.
+  * The jumper should always remain closed unless you have one of these mythical cards (which you almost certainly do not).
+ * **WINSIZE**: This relates to how much memory space your PCI cards require. With the jumper open, the PCI memory space is 256MB. With it closed, the space is 512MB.
+  * Only your graphics card is likely to present memory to the system, so you can base the decision for this jumper on the amount of RAM on your graphics card.
+  * If it's less than 256MB, open this jumper. If it's 256MB or more, close this jumper.
+  * **NOTE:** Some Radeon cards may require more memory space than their total RAM size, so you may need you to close this jumper (you can check by comparing the `MemSpace` values in `C:PCIInfo` output with the jumper open and closed).
+ * **SWAPCONFIG**: This determines the order of memory allocation for Zorro/PCI cards.
+  * The Mediator bridgeboard presents two Zorro3 devices to the Amiga, one being the PCI memory space, the other being the Mediator.
+  * This jumper controls the order in which those two devices are attached to the Amiga. With the jumper open, the PCI space is second. With the jumper closed, the PCI space is first.
+  * If you have a Zorro3 graphics card, or a Zorro3 card which performs DMA (e.g. A4091 or X-Surf-100) this jumper should be closed. If you don't have any relevant Zorro3 cards, the position of this jumper doesn't matter.
 
 ## 3. Software
 Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the *Mediator Multimedia CD* (generally known as `MMCD`).

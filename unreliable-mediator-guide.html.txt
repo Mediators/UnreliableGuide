@@ -163,9 +163,16 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <h4 id="di-1">2.3.1 4000Di</h4>
 <p>This model has three jumpers:</p>
 <ul>
-<li><strong>MASTER</strong>: This is for using the Mediator with the (unreleased) Elbox SharkPPC card. The jumper should always remain closed unless you have one of these mythical cards (which you almost certainly do not).</li>
-<li><strong>WINSIZE</strong>: This relates to how much memory space your PCI cards require. Since the only card that's likely to present memory to the system, is your graphics card, you can base the decision for this jumper on the amount of RAM on your graphics card. If it's less than 256MB, open this jumper. If it's 256MB or more, close this jumper.</li>
-<li><strong>SWAPCONFIG</strong>: This determines the order of memory allocation for Zorro/PCI cards. The details here are unimportant, leave the jumper open unless you have a Zorro 3 device which does DMA (e.g. A4091 or X-Surf-100) or a Zorro 3 graphics card.</li>
+<li><strong>MASTER</strong>: This is for using the Mediator with the (unreleased) Elbox SharkPPC card.</li>
+<li>The jumper should always remain closed unless you have one of these mythical cards (which you almost certainly do not).</li>
+<li><strong>WINSIZE</strong>: This relates to how much memory space your PCI cards require. With the jumper open, the PCI memory space is 256MB. With it closed, the space is 512MB.</li>
+<li>Only your graphics card is likely to present memory to the system, so you can base the decision for this jumper on the amount of RAM on your graphics card.</li>
+<li>If it's less than 256MB, open this jumper. If it's 256MB or more, close this jumper.</li>
+<li><strong>NOTE:</strong> Some Radeon cards may require more memory space than their total RAM size, so you may need you to close this jumper (you can check by comparing the <code>MemSpace</code> values in <code>C:PCIInfo</code> output with the jumper open and closed).</li>
+<li><strong>SWAPCONFIG</strong>: This determines the order of memory allocation for Zorro/PCI cards.</li>
+<li>The Mediator bridgeboard presents two Zorro3 devices to the Amiga, one being the PCI memory space, the other being the Mediator.</li>
+<li>This jumper controls the order in which those two devices are attached to the Amiga. With the jumper open, the PCI space is second. With the jumper closed, the PCI space is first.</li>
+<li>If you have a Zorro3 graphics card, or a Zorro3 card which performs DMA (e.g. A4091 or X-Surf-100) this jumper should be closed. If you don't have any relevant Zorro3 cards, the position of this jumper doesn't matter.</li>
 </ul>
 <h2 id="software">3. Software</h2>
 <p>Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the <em>Mediator Multimedia CD</em> (generally known as <code>MMCD</code>).</p>
