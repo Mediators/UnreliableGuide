@@ -177,6 +177,8 @@ Of these, Roadshow is the newest and is often the fastest. The choice is yours, 
 
 There is an environment variable for `RTL-8139` devices, `ENVARC:Mediator/FastEthernet` which controls how the Ethernet link should be configured, see Section 3.2 for more information.
 
+With a good network card in a well configured system, it should be possible to achieve roughly 1MB/s through the network interface.
+
 #### 3.1.5 USB card
 
 TODO
