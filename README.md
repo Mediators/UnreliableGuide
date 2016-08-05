@@ -82,7 +82,7 @@ Obviously the installation for different Amigas varies widely, because of their 
  * Ensure graphics card works
  * Install other PCI cards
 
-*NOTE:* Some users have reported that on some Mediators, the order of PCI cards is important, particularly the placement of the graphics card. Please contact us if you know more about this.
+**NOTE:** Some users have reported that on some Mediators, the order of PCI cards is important, particularly the placement of the graphics card. Please contact us if you know more about this.
 
 #### 2.2.1 4000Di
 
@@ -181,7 +181,23 @@ With a good network card in a well configured system, it should be possible to a
 
 #### 3.1.5 USB card
 
-TODO
+The only USB card that can currently be used in a Mediator, is Elbox's Spider card (which is actually an NEC card with modified firmware). Installation is very simple:
+
+ * Download Poseidon 4.5 (either from [Chris Hodges (Poseidon's author) site](http://dump.platon42.de/files/) or [Individual Computers](http://wiki.icomp.de/wiki/RapidRoad#Software_download)
+ * Install Poseidon
+ * Copy `spider.device` to `DEVS:USBHardware`
+ * In a shell run:
+     * `AddUSBHardware DEVS:USBHardware/spider.device 2`
+     * `AddUSBHardware DEVS:USBHardware/spider.device 0`
+     * `AddUSBHardware DEVS:USBHardware/spider.device 1`
+
+
+**NOTES: **
+ * The Poseidon installer will place a command at the very start of `S:Startup-Sequence` to load its input driver. Some users find that this causes their boot to hang, and have to comment the line out.
+ * Nobody has yet been able to get USB Ethernet adapters to work on a Spider card, even though they should be supported by Poseidon. If you know how to make it work, please contact us!
+ * The licensing situation of Poseidon has become complex. The latest available version, 4.5, only contains drivers for Individual Computer's RapidRoad board. While this doesn't pose an issue for Spider users, since `spider.device` is distributed separately, there have been questions about the legality of Elbox's driver (at the very least they did not make any contributions to Poseidon's development, and are not authorised to distribute the main Poseidon archive). Some of the authors of this guide feel that the morally appropriate thing for users to do, is to purchase an item from Chris Hodges' [Amazon Wishlist](http://www.amazon.de/gp/registry/wishlist/1123KBN787GJQ) since it is not possible to pay for Poseidon.
+
+Performance of the Spider is pretty good, a random USB flash drive should give about 3MB/s.
 
 #### 3.1.6 TV Tuners
 

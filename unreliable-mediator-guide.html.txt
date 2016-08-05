@@ -142,7 +142,7 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <li>Ensure graphics card works</li>
 <li>Install other PCI cards</li>
 </ul>
-<p><em>NOTE:</em> Some users have reported that on some Mediators, the order of PCI cards is important, particularly the placement of the graphics card. Please contact us if you know more about this.</p>
+<p><strong>NOTE:</strong> Some users have reported that on some Mediators, the order of PCI cards is important, particularly the placement of the graphics card. Please contact us if you know more about this.</p>
 <h4 id="di">2.2.1 4000Di</h4>
 <ul>
 <li>Remove the A4000 top cover</li>
@@ -231,7 +231,25 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <p>There is an environment variable for <code>RTL-8139</code> devices, <code>ENVARC:Mediator/FastEthernet</code> which controls how the Ethernet link should be configured, see Section 3.2 for more information.</p>
 <p>With a good network card in a well configured system, it should be possible to achieve roughly 1MB/s through the network interface.</p>
 <h4 id="usb-card">3.1.5 USB card</h4>
-<p>TODO</p>
+<p>The only USB card that can currently be used in a Mediator, is Elbox's Spider card (which is actually an NEC card with modified firmware). Installation is very simple:</p>
+<ul>
+<li>Download Poseidon 4.5 (either from <a href="http://dump.platon42.de/files/">Chris Hodges (Poseidon's author) site</a> or <a href="http://wiki.icomp.de/wiki/RapidRoad#Software_download">Individual Computers</a></li>
+<li>Install Poseidon</li>
+<li>Copy <code>spider.device</code> to <code>DEVS:USBHardware</code></li>
+<li>In a shell run:
+<ul>
+<li><code>AddUSBHardware DEVS:USBHardware/spider.device 2</code></li>
+<li><code>AddUSBHardware DEVS:USBHardware/spider.device 0</code></li>
+<li><code>AddUSBHardware DEVS:USBHardware/spider.device 1</code></li>
+</ul></li>
+</ul>
+<p><strong>NOTES: </strong></p>
+<ul>
+<li>The Poseidon installer will place a command at the very start of <code>S:Startup-Sequence</code> to load its input driver. Some users find that this causes their boot to hang, and have to comment the line out.</li>
+<li>Nobody has yet been able to get USB Ethernet adapters to work on a Spider card, even though they should be supported by Poseidon. If you know how to make it work, please contact us!</li>
+<li>The licensing situation of Poseidon has become complex. The latest available version, 4.5, only contains drivers for Individual Computer's RapidRoad board. While this doesn't pose an issue for Spider users, since <code>spider.device</code> is distributed separately, there have been questions about the legality of Elbox's driver (at the very least they did not make any contributions to Poseidon's development, and are not authorised to distribute the main Poseidon archive). Some of the authors of this guide feel that the morally appropriate thing for users to do, is to purchase an item from Chris Hodges' <a href="http://www.amazon.de/gp/registry/wishlist/1123KBN787GJQ">Amazon Wishlist</a> since it is not possible to pay for Poseidon.</li>
+</ul>
+<p>Performance of the Spider is pretty good, a random USB flash drive should give about 3MB/s.</p>
 <h4 id="tv-tuners">3.1.6 TV Tuners</h4>
 <p>Please contribute to this section if you have any useful information :)</p>
 <h4 id="scsi-cards">3.1.7 SCSI cards</h4>
