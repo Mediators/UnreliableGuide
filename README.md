@@ -53,10 +53,10 @@ A Mediator typically consists of two main parts:
  * A backplane board with slots for some combination of PCI and Zorro cards
  * A bridge board which connects to both the PCI and Zorro busses, to translate between them
 
-The backplane board is generally very simple, it is really just a series of PCI and/or Zorro slots. The real magic of the Mediator happens on the bridge board. This board sits on both PCI and Zorro, and contains a series of chips (known as *MACH*) that translate between the protocols of PCI and Zorro, allowing the Amiga to communicate with the PCI cards and vice versa.
+The backplane board is generally very simple, it is really just a series of PCI and/or Zorro slots. The real magic of the Mediator happens on the bridge board. This board sits on both PCI and Zorro buses, and contains a series of chips (known as *MACH*) that translate between the protocols of PCI and Zorro, allowing the Amiga to communicate with the PCI cards and vice versa.
 
 ### 2.1 Supported PCI cards
-It's important to use cards which are supported. Unfortunately the list is quite small, partly because writing hardware drivers is not easy, partly because the Mediator Driver Development Kit is not publicly available.
+There are drivers for a number of PCI cards, with most of the drivers being maintained by Elbox. Unfortunately the Driver Development Kit for writing additional drivers is not freely available, limiting the possibilities for community maintained drivers.
 
 Elbox maintains a list of compatible cards [on their website](http://www.elbox.com/mediator_driver_guide.html)
 
@@ -69,6 +69,9 @@ It is possible to modify 5V Mediators to supply 3.3V to cards that need it, by c
 (If you would like to document the process here, please contact us!)
 
 It is also often possible to modify PCI cards to have their own voltage regulator (e.g. `LM1084`) to convert 5V to 3.3V on the card itself.
+
+#### 2.1.2 IRQs
+PCI cards generally need to have an IRQ allocated to them to be able to function correctly, and while sharing IRQs is possible, not all cards are happy with it. Mediator bridgeboards supply and configure 5 IRQs. While this is not normally a problem (particularly if you have fewer than 5 PCI slots on your Mediator), if you are having stability issues where usage of one card seems to affect another, check the output of `C:PCIInfo` and look for any IRQ sharing. If you do find one or more IRQs being shared, the only way to resolve stability is to re-order your PCI cards.
 
 ### 2.2 Installation
 Obviously the installation for different Amigas varies widely, because of their different form factors. Specific information for various models can be found below, but the general steps are:
@@ -117,7 +120,7 @@ This model has three jumpers:
      * If you have a Zorro3 graphics card, or a Zorro3 card which performs DMA (e.g. A4091 or X-Surf-100) this jumper should be closed. If you don't have any relevant Zorro3 cards, the position of this jumper doesn't matter.
 
 ## 3. Software
-Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the *Mediator Multimedia CD* (generally known as `MMCD`).
+Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the *Mediator Multimedia CD* (generally known as `MMCD`). It is only relevant to AmigaOS 3.1/3.5/3.9 - 4.1 uses its own drivers.
 
 **NOTE:** It's quite common for the CD supplied by Elbox to be significantly out of date, so always check [their website](http://www.elbox.com/downloads_mediator.html) for a driver pack update (`MM_CD_UP`). However, even these update packs do not always contain the most recently available drivers/libraries. The same download page also lists individual updates that have been released (e.g. `pci.library`) and the dates. Ensure you have the latest versions of everything.
 
@@ -196,7 +199,7 @@ The only USB card that can currently be used in a Mediator, is Elbox's Spider ca
  * The Spider will appear in `PCIInfo` as three devices - one for Full Speed USB and two for Normal Speed.
  * The Poseidon installer will place a command at the very start of `S:Startup-Sequence` to load its input driver. Some users find that this causes their boot to hang, and have to comment the line out.
  * Nobody has yet been able to get USB Soundcards or Ethernet adapters to work on a Spider card, even though they should be supported by Poseidon. If you know how to make them work, please contact us!
- * The licensing situation of Poseidon has become complex. The latest available version, 4.5, only contains drivers for Individual Computer's RapidRoad board. While this doesn't pose an issue for Spider users, since `spider.device` is distributed separately, there have been questions about the legality of Elbox's driver (at the very least they did not make any contributions to Poseidon's development, and are not authorised to distribute the main Poseidon archive). Some of the authors of this guide feel that the morally appropriate thing for users to do, is to purchase an item from Chris Hodges' [Amazon Wishlist](http://www.amazon.de/gp/registry/wishlist/1123KBN787GJQ) since it is not possible to pay for Poseidon.
+ * The licensing situation of Poseidon is somewhat complex. The latest available version, 4.5, only contains drivers for Individual Computer's RapidRoad board. While this doesn't pose an issue for Spider users, since `spider.device` is distributed separately, there have been questions about the legality of Elbox's driver (at the very least they did not make any contributions to Poseidon's development, and are not authorised to distribute the main Poseidon archive). Some of the authors of this guide feel that the morally appropriate thing for users to do, is to purchase an item from Chris Hodges' [Amazon Wishlist](http://www.amazon.de/gp/registry/wishlist/1123KBN787GJQ) since it is not possible to pay for Poseidon.
  * Early versions of `spider.device` contained a DRM mechanism that, in certain situations, could erase your disk's MBR (i.e. partition table). This *feature* has been removed in more recent versions (do you know which version removed it?).
  * Performance of the Spider should be around 3MB/s on a reasonable quality USB flash drive. 
 
@@ -206,7 +209,7 @@ Please contribute to this section if you have any useful information :)
 
 #### 3.1.7 SCSI cards
 
-There is a [driver on Aminet](http://aminet.net/package/driver/media/aic78xx.device) that allows you to use certain Adaptec SCSI cards. Depending on your card's connectors, you will be able to attach up to 14 SCSI devices to the various SCSI connectors on the card (usually 50pin internal, 68pin internal and 68pin external, of which any two can be in use at the same time).
+There is a [driver on Aminet](http://aminet.net/package/driver/media/aic78xx.device) that allows you to use certain Adaptec SCSI cards in the AHA-2940UW range. Depending on your card's connectors, you will be able to attach up to 14 SCSI devices to the various SCSI connectors on the card (usually 50pin internal, 68pin internal and 68pin external, of which any two can be in use at the same time).
 
 **NOTE:** Even though these cards are capable of high speed data transfer (around 40MB/s), in a Mediator they are limited by the overheads of being moving data from the SCSI card to graphics card RAM, and from there across the Zorro3 bus to the Amiga's CPU (and vice versa). This means that SCSI devices attached to the Adaptec card will actually only operate at around 3MB/s (i.e. roughly equivalent to the A1200/A4000 internal IDE).
 
@@ -315,4 +318,8 @@ The earliest version of `MMCD` that the authors currently have access to, is 2.0
 This driver is distributed separately from `MMCD`, although `spider.device` 3.20 appeared in `MM_CD_UP` 2.0c.
 
 The `Spider II USB 2.0` CD includes `spider.device` 3.22.
+
+#### 3.3.4 pci.library
+
+At the time of writing, the latest version of `pci.library` (11.0) is distribtued separately from `MM_CD_UP`, and must be downloaded directly from Elbox's website.
 
