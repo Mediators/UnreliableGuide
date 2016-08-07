@@ -41,6 +41,7 @@
 <li><a href="#hardware">2. Hardware</a><ul>
 <li><a href="#supported-pci-cards">2.1 Supported PCI cards</a><ul>
 <li><a href="#supported-voltages">2.1.1 Supported voltages</a></li>
+<li><a href="#irqs">2.1.2 IRQs</a></li>
 </ul></li>
 <li><a href="#installation">2.2 Installation</a><ul>
 <li><a href="#di">2.2.1 4000Di</a></li>
@@ -68,6 +69,7 @@
 <li><a href="#mmcd">3.3.1 MMCD</a></li>
 <li><a href="#mm_cd_up">3.3.2 MM_CD_UP</a></li>
 <li><a href="#spider-ii-driver">3.3.3 Spider II Driver</a></li>
+<li><a href="#pci.library">3.3.4 pci.library</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -75,7 +77,7 @@
 </div>
 <h1 id="the-unreliable-mediator-guide">The Unreliable Mediator Guide</h1>
 <h2 id="version">Version</h2>
-<p>0.2 - 2016-08-03</p>
+<p>0.3 - 2016-08-07</p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li>Chris Jones <a href="mailto:cmsj@tenshu.net">cmsj@tenshu.net</a> (current maintainer)</li>
@@ -117,19 +119,21 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <h2 id="hardware">2. Hardware</h2>
 <p>A Mediator typically consists of two main parts:</p>
 <ul>
-<li>A backplane board with slots for some combination of PCI and Zorro cards</li>
+<li>A backplane board with some combination of PCI and Zorro card slots</li>
 <li>A bridge board which connects to both the PCI and Zorro busses, to translate between them</li>
 </ul>
-<p>The backplane board is generally very simple, it is really just a series of PCI and/or Zorro slots. The real magic of the Mediator happens on the bridge board. This board sits on both PCI and Zorro, and contains a series of chips (known as <em>MACH</em>) that translate between the protocols of PCI and Zorro, allowing the Amiga to communicate with the PCI cards and vice versa.</p>
+<p>The backplane board is generally very simple, it is really just a series of PCI and/or Zorro slots. The real magic of the Mediator happens on the bridge board. This board sits on both PCI and Zorro buses, and contains a series of chips (known as <em>MACH</em>) that translate between the protocols of PCI and Zorro, allowing the Amiga to communicate with the PCI cards and vice versa.</p>
 <h3 id="supported-pci-cards">2.1 Supported PCI cards</h3>
-<p>It's important to use cards which are supported. Unfortunately the list is quite small, partly because writing hardware drivers is not easy, partly because the Mediator Driver Development Kit is not publicly available.</p>
+<p>There are drivers for a number of PCI cards, with most of the drivers being maintained by Elbox. Unfortunately the Driver Development Kit for writing additional drivers is not freely available, limiting the possibilities for community maintained drivers.</p>
 <p>Elbox maintains a list of compatible cards <a href="http://www.elbox.com/mediator_driver_guide.html">on their website</a></p>
 <p>There are also one or two additional drivers <a href="http://aminet.net/search?name=mediator&amp;path%5B%5D=driver&amp;q_desc=OR&amp;desc=mediator">on Aminet</a></p>
 <h4 id="supported-voltages">2.1.1 Supported voltages</h4>
-<p>All Mediators support 5V PCI cards, but only some support 3.3V PCI cards. You can tell which voltages a PCI card works with, by looking at its edge connector. If it has a section cut out of the edge connector 5.6cm away from the backplate, it requires 3.3V. If it has a section cut out of the edge connector 10cm from the backplate, it requires 5V. Cards that have both sections cut out, work with either 3.3V or 5V. Some users have noticed that some PCI cards appear to be 5V compatible, but actually do require 3.3V.</p>
+<p>All Mediators support 5V PCI cards, but only some support 3.3V PCI cards. You can usually tell which voltages a PCI card works with, by looking at its edge connector. If it has a section cut out of the edge connector 5.6cm away from the backplate, it requires 3.3V. If it has a section cut out of the edge connector 10cm from the backplate, it requires 5V. Cards that have both sections cut out, work with either 3.3V or 5V. Some users have noticed that some PCI cards appear to be 5V compatible, but actually do require 3.3V.</p>
 <p>It is possible to modify 5V Mediators to supply 3.3V to cards that need it, by connecting a 3.3V supply to the appropriate PCI pins on the back of the Mediator busboard.<br />
 (If you would like to document the process here, please contact us!)</p>
 <p>It is also often possible to modify PCI cards to have their own voltage regulator (e.g. <code>LM1084</code>) to convert 5V to 3.3V on the card itself.</p>
+<h4 id="irqs">2.1.2 IRQs</h4>
+<p>PCI cards generally need to have an IRQ allocated to them to be able to function correctly, and while sharing IRQs is possible, not all cards are happy with it. Mediator bridgeboards supply and configure 5 IRQs. While this is not normally a problem (particularly if you have fewer than 5 PCI slots on your Mediator), if you are having stability issues where usage of one card seems to affect another, check the output of <code>C:PCIInfo</code> and look for any IRQ sharing. If you do find one or more IRQs being shared, the only way to resolve stability is to re-order your PCI cards.</p>
 <h3 id="installation">2.2 Installation</h3>
 <p>Obviously the installation for different Amigas varies widely, because of their different form factors. Specific information for various models can be found below, but the general steps are:</p>
 <ul>
@@ -181,7 +185,7 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 </ul></li>
 </ul>
 <h2 id="software">3. Software</h2>
-<p>Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the <em>Mediator Multimedia CD</em> (generally known as <code>MMCD</code>).</p>
+<p>Along with the hardware, Elbox also produces software and drivers for Mediators and the PCI cards they are compatible with. This is supplied with the Mediator and is called the <em>Mediator Multimedia CD</em> (generally known as <code>MMCD</code>). It is only relevant to AmigaOS 3.1/3.5/3.9 - 4.1 uses its own drivers.</p>
 <p><strong>NOTE:</strong> It's quite common for the CD supplied by Elbox to be significantly out of date, so always check <a href="http://www.elbox.com/downloads_mediator.html">their website</a> for a driver pack update (<code>MM_CD_UP</code>). However, even these update packs do not always contain the most recently available drivers/libraries. The same download page also lists individual updates that have been released (e.g. <code>pci.library</code>) and the dates. Ensure you have the latest versions of everything.</p>
 <h3 id="installation-1">3.1 Installation</h3>
 <p>The Elbox installers are not particularly neat in their choices of where to install the software/drivers. If you are feeling particularly confident, you may choose to install the various components by hand, but we would suggest that at least your first time, you may want to use the Elbox installers:</p>
@@ -245,15 +249,17 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 </ul>
 <p><strong>NOTES: </strong></p>
 <ul>
+<li>The Spider will appear in <code>PCIInfo</code> as three devices - one for Full Speed USB and two for Normal Speed.</li>
 <li>The Poseidon installer will place a command at the very start of <code>S:Startup-Sequence</code> to load its input driver. Some users find that this causes their boot to hang, and have to comment the line out.</li>
-<li>Nobody has yet been able to get USB Ethernet adapters to work on a Spider card, even though they should be supported by Poseidon. If you know how to make it work, please contact us!</li>
-<li>The licensing situation of Poseidon has become complex. The latest available version, 4.5, only contains drivers for Individual Computer's RapidRoad board. While this doesn't pose an issue for Spider users, since <code>spider.device</code> is distributed separately, there have been questions about the legality of Elbox's driver (at the very least they did not make any contributions to Poseidon's development, and are not authorised to distribute the main Poseidon archive). Some of the authors of this guide feel that the morally appropriate thing for users to do, is to purchase an item from Chris Hodges' <a href="http://www.amazon.de/gp/registry/wishlist/1123KBN787GJQ">Amazon Wishlist</a> since it is not possible to pay for Poseidon.</li>
+<li>Nobody has yet been able to get USB Soundcards or Ethernet adapters to work on a Spider card, even though they should be supported by Poseidon. If you know how to make them work, please contact us!</li>
+<li>The licensing situation of Poseidon is somewhat complex. The latest available version, 4.5, only contains drivers for Individual Computer's RapidRoad board. While this doesn't pose an issue for Spider users, since <code>spider.device</code> is distributed separately, there have been questions about the legality of Elbox's driver (at the very least they did not make any contributions to Poseidon's development, and are not authorised to distribute the main Poseidon archive). Some of the authors of this guide feel that the morally appropriate thing for users to do, is to purchase an item from Chris Hodges' <a href="http://www.amazon.de/gp/registry/wishlist/1123KBN787GJQ">Amazon Wishlist</a> since it is not possible to pay for Poseidon.</li>
+<li>Early versions of <code>spider.device</code> contained a DRM mechanism that, in certain situations, could erase your disk's MBR (i.e. partition table). This <em>feature</em> has been removed in more recent versions (do you know which version removed it?).</li>
+<li>Performance of the Spider should be around 3MB/s on a reasonable quality USB flash drive.</li>
 </ul>
-<p>Performance of the Spider is pretty good, a random USB flash drive should give about 3MB/s.</p>
 <h4 id="tv-tuners">3.1.6 TV Tuners</h4>
 <p>Please contribute to this section if you have any useful information :)</p>
 <h4 id="scsi-cards">3.1.7 SCSI cards</h4>
-<p>There is a <a href="http://aminet.net/package/driver/media/aic78xx.device">driver on Aminet</a> that allows you to use certain Adaptec SCSI cards. Depending on your card's connectors, you will be able to attach up to 14 SCSI devices to the various SCSI connectors on the card (usually 50pin internal, 68pin internal and 68pin external, of which any two can be in use at the same time).</p>
+<p>There is a <a href="http://aminet.net/package/driver/media/aic78xx.device">driver on Aminet</a> that allows you to use certain Adaptec SCSI cards from the AHA-2940UW range. Depending on your card's connectors, you will be able to attach up to 14 SCSI devices to the various SCSI connectors on the card (usually 50pin internal, 68pin internal and 68pin external, of which any two can be in use at the same time).</p>
 <p><strong>NOTE:</strong> Even though these cards are capable of high speed data transfer (around 40MB/s), in a Mediator they are limited by the overheads of being moving data from the SCSI card to graphics card RAM, and from there across the Zorro3 bus to the Amiga's CPU (and vice versa). This means that SCSI devices attached to the Adaptec card will actually only operate at around 3MB/s (i.e. roughly equivalent to the A1200/A4000 internal IDE).</p>
 <h4 id="serialparallel-cards">3.1.8 Serial/Parallel cards</h4>
 <p>Please contribute to this section if you have any useful information :)</p>
@@ -539,5 +545,7 @@ Most of the <code>MM_CD_UP</code> archives can be downloaded from <a href="http:
 <h4 id="spider-ii-driver">3.3.3 Spider II Driver</h4>
 <p>This driver is distributed separately from <code>MMCD</code>, although <code>spider.device</code> 3.20 appeared in <code>MM_CD_UP</code> 2.0c.</p>
 <p>The <code>Spider II USB 2.0</code> CD includes <code>spider.device</code> 3.22.</p>
+<h4 id="pci.library">3.3.4 pci.library</h4>
+<p>At the time of writing, the latest version of <code>pci.library</code> (11.0) is distribtued separately from <code>MM_CD_UP</code>, and must be downloaded directly from Elbox's website.</p>
 </body>
 </html>
