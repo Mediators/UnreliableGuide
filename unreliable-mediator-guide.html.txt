@@ -207,6 +207,12 @@ A nicely formatted PDF version is available from: <a href="https://mediators.git
 <li>Edit the tooltypes for the monitor</li>
 <li>Change the <code>BOARDTYPE</code> value to the name of the graphics card driver (which live in <code>LIBS:Picasso96/</code>), e.g. <code>Radeon</code></li>
 </ul>
+<p><strong>NOTES</strong>:</p>
+<ul>
+<li>Voodoo 4 and 5 cards operate in a mode where they behave like Voodoo 3 cards - performance will therefore be roughly the same on all three. The 4 and 5 cards do have more RAM though.</li>
+<li>The Voodoo driver has a bug which prevents 15bit and 16bit screenmodes from working correctly if an app/game requires a different Endian addressing setup - this manifests as games running with the wrong colours.</li>
+<li>Voodoo cards can be overclocked via tooltypes on the monitor file in <code>DEVS:Monitors</code> - if you have more details, please contact us!</li>
+</ul>
 <h4 id="sound-card">3.1.3 Sound card</h4>
 <p>Assuming you ran the Elbox installer, it will have installed <code>AHI</code>, the Amiga's retargetable audio framework, several drivers, and a Mixer application. It seems as though Elbox installs AHI 4.21, but then also places some newer components on top of that install, so it may not be possible to easily recreate a known-good setup without using Elbox's installer. If you have set up AHI from scratch with a Mediator, please let us know (particularly if you have tested the latest version, 6.0).</p>
 <p>Your sound card will require some additional configuration:</p>

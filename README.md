@@ -148,6 +148,12 @@ Somewhat unusually for Amiga hardware, there is no device driver for the Mediato
  * Edit the tooltypes for the monitor
  * Change the `BOARDTYPE` value to the name of the graphics card driver (which live in `LIBS:Picasso96/`), e.g. `Radeon`
 
+**NOTES**:
+
+ * Voodoo 4 and 5 cards operate in a mode where they behave like Voodoo 3 cards - performance will therefore be roughly the same on all three. The 4 and 5 cards do have more RAM though.
+ * The Voodoo driver has a bug which prevents 15bit and 16bit screenmodes from working correctly if an app/game requires a different Endian addressing setup - this manifests as games running with the wrong colours.
+ * Voodoo cards can be overclocked via tooltypes on the monitor file in `DEVS:Monitors` - if you have more details, please contact us!
+
 #### 3.1.3 Sound card
 Assuming you ran the Elbox installer, it will have installed `AHI`, the Amiga's retargetable audio framework, several drivers, and a Mixer application. It seems as though Elbox installs AHI 4.21, but then also places some newer components on top of that install, so it may not be possible to easily recreate a known-good setup without using Elbox's installer. If you have set up AHI from scratch with a Mediator, please let us know (particularly if you have tested the latest version, 6.0).
 
