@@ -155,7 +155,7 @@ Somewhat unusually for Amiga hardware, there is no device driver for the Mediato
  * Voodoo cards can be overclocked via tooltypes on the monitor file in `DEVS:Monitors` - if you have more details, please contact us!
 
 #### 3.1.3 Sound card
-Assuming you ran the Elbox installer, it will have installed `AHI`, the Amiga's retargetable audio framework, several drivers, and a Mixer application. It seems as though Elbox installs AHI 4.21, but then also places some newer components on top of that install, so it may not be possible to easily recreate a known-good setup without using Elbox's installer. If you have set up AHI from scratch with a Mediator, please let us know (particularly if you have tested the latest version, 6.0).
+Assuming you ran the Elbox installer, it will have installed `AHI`, the Amiga's retargetable audio framework, several drivers, and a Mixer application. The Elbox installer appears to install a strange mixture of different versions of AHI, but only two files are specific to the hardware, so you can start with a stock install of AHI and add in the `.card` and audiomode files from Elbox, that apply to your soundcard (so either `sb128` or `fm801`). Some users seem to find that AHI 5.6 is more stable than AHI 6.0.
 
 Your sound card will require some additional configuration:
 
