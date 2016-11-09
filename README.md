@@ -1,7 +1,7 @@
 # The Unreliable Mediator Guide
 
 ## Version
-0.3 - 2016-08-07
+0.4 - 2016-11-09
 
 ## Authors
  * Chris Jones <cmsj@tenshu.net> (current maintainer)
@@ -328,4 +328,24 @@ The `Spider II USB 2.0` CD includes `spider.device` 3.22.
 #### 3.3.4 pci.library
 
 At the time of writing, the latest version of `pci.library` (11.0) is distribtued separately from `MM_CD_UP`, and must be downloaded directly from Elbox's website.
+
+## 4. Troubleshooting
+
+Mediators are extremely complex pieces of hardware and driver development tends to be very slow, so it's possible to run into various issues, both hardare and software.
+
+### 4.1 Hardware
+
+#### 4.1.1 Mediator disappears from Autoconfig after a few reboots
+
+Your Mediator is defective and needs to be returned to Elbox for repair/replacement.
+
+### 4.2 Software
+
+#### 4.2.1 Guru meditations from ramlib (80000004)
+
+This seems to be a widely experienced symptom, and may trace back to multiple underlying causes. Potential remedies worth investigating:
+ * Remove and reseat the Mediator and bridgeboard
+ * Clean all the contacts on the bridgeboard, Mediator and PCI cards
+ * Install [dtack](http://aminet.net/package/util/misc/dtack) and place it in `S:Startup-sequence` before anything touches the Mediator (i.e. at least before any `DEVS:Monitors` files are loaded)
+    * Note that dtack may cause issues with Warp3D. If anyone would like to explain why dtack is able to help, we would love to place a thorough explanation here!
 

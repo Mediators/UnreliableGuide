@@ -72,12 +72,20 @@
 <li><a href="#pci.library">3.3.4 pci.library</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#troubleshooting">4. Troubleshooting</a><ul>
+<li><a href="#hardware-1">4.1 Hardware</a><ul>
+<li><a href="#mediator-disappears-from-autoconfig-after-a-few-reboots">4.1.1 Mediator disappears from Autoconfig after a few reboots</a></li>
+</ul></li>
+<li><a href="#software-1">4.2 Software</a><ul>
+<li><a href="#guru-meditations-from-ramlib-80000004">4.2.1 Guru meditations from ramlib (80000004)</a></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 <h1 id="the-unreliable-mediator-guide">The Unreliable Mediator Guide</h1>
 <h2 id="version">Version</h2>
-<p>0.3 - 2016-08-07</p>
+<p>0.4 - 2016-11-09</p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li>Chris Jones <a href="mailto:cmsj@tenshu.net">cmsj@tenshu.net</a> (current maintainer)</li>
@@ -553,5 +561,21 @@ Most of the <code>MM_CD_UP</code> archives can be downloaded from <a href="http:
 <p>The <code>Spider II USB 2.0</code> CD includes <code>spider.device</code> 3.22.</p>
 <h4 id="pci.library">3.3.4 pci.library</h4>
 <p>At the time of writing, the latest version of <code>pci.library</code> (11.0) is distribtued separately from <code>MM_CD_UP</code>, and must be downloaded directly from Elbox's website.</p>
+<h2 id="troubleshooting">4. Troubleshooting</h2>
+<p>Mediators are extremely complex pieces of hardware and driver development tends to be very slow, so it's possible to run into various issues, both hardare and software.</p>
+<h3 id="hardware-1">4.1 Hardware</h3>
+<h4 id="mediator-disappears-from-autoconfig-after-a-few-reboots">4.1.1 Mediator disappears from Autoconfig after a few reboots</h4>
+<p>Your Mediator is defective and needs to be returned to Elbox for repair/replacement.</p>
+<h3 id="software-1">4.2 Software</h3>
+<h4 id="guru-meditations-from-ramlib-80000004">4.2.1 Guru meditations from ramlib (80000004)</h4>
+<p>This seems to be a widely experienced symptom, and may trace back to multiple underlying causes. Potential remedies worth investigating:</p>
+<ul>
+<li>Remove and reseat the Mediator and bridgeboard</li>
+<li>Clean all the contacts on the bridgeboard, Mediator and PCI cards</li>
+<li>Install <a href="http://aminet.net/package/util/misc/dtack">dtack</a> and place it in <code>S:Startup-sequence</code> before anything touches the Mediator (i.e. at least before any <code>DEVS:Monitors</code> files are loaded)
+<ul>
+<li>Note that dtack may cause issues with Warp3D. If anyone would like to explain why dtack is able to help, we would love to place a thorough explanation here!</li>
+</ul></li>
+</ul>
 </body>
 </html>
