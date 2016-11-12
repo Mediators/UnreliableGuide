@@ -1,4 +1,4 @@
-# The Unreliable Mediator Guide
+# The Mediator Guide
 
 ## Version
 0.4 - 2016-11-09
