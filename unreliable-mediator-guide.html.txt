@@ -88,7 +88,7 @@
 <p>0.4 - 2016-11-09</p>
 <h2 id="authors">Authors</h2>
 <ul>
-<li>Chris Jones <a href="mailto:cmsj@tenshu.net">cmsj@tenshu.net</a> (current maintainer)</li>
+<li>Chris Jones <a href="mailto:cmsj@tenshu.net">cmsj@tenshu.net</a> (current, but inactive, maintainer)</li>
 </ul>
 <p>If you have a Mediator, or know about them, and either disagree with something in this guide, or have some extra information you'd like to add, please do contact us. We want this document to grow to cover as much detail about Mediators as possible!</p>
 <p>The canonical home of the guide is: <a href="https://mediators.github.io" class="uri">https://mediators.github.io</a><br />
