@@ -4,7 +4,7 @@
 0.4 - 2016-11-09
 
 ## Authors
- * Chris Jones <cmsj@tenshu.net> (current maintainer)
+ * Chris Jones <cmsj@tenshu.net> (current, but inactive, maintainer)
 
 If you have a Mediator, or know about them, and either disagree with something in this guide, or have some extra information you'd like to add, please do contact us. We want this document to grow to cover as much detail about Mediators as possible!
 
