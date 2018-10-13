@@ -344,6 +344,7 @@ Your Mediator is defective and needs to be returned to Elbox for repair/replacem
 #### 4.2.1 Guru meditations from ramlib (80000004)
 
 This seems to be a widely experienced symptom, and may trace back to multiple underlying causes. Potential remedies worth investigating:
+ * If you receive a software failure 8000 0004 when LoadMonDrvs or clicking the icon in Devs:monitors/Voodoo this can becaused by a Voodoo firmware flashed for Mac.  Flash for PC BIOS.
  * Remove and reseat the Mediator and bridgeboard
  * Clean all the contacts on the bridgeboard, Mediator and PCI cards
  * Install [dtack](http://aminet.net/package/util/misc/dtack) and place it in `S:Startup-sequence` before anything touches the Mediator (i.e. at least before any `DEVS:Monitors` files are loaded)
