@@ -354,6 +354,6 @@ This seems to be a widely experienced symptom, and may trace back to multiple un
 
 As it relates to power there are two major varieties of Mediators, those that support 3.3V natively and those that do not.
 
-* 5V only versions include the original Mediator through the MK2 for A3000 and A4000.  These do not supply 3.3V power to the PCI slots and 3.3V only PCI cards require modifications to the boards or the Mediator busboard itself.
+* 5V only versions include the original Mediator through the MK2 for A3000 and A4000.  These do not supply 3.3V power to the PCI slots and 3.3V only PCI cards require modifications or the Mediator busboard itself.
 
-* 3.3V Black MK3 "Black" Edition are the new versions manufactured since 2014.  These supply 3.3V power to the PCI slots via a 3 amp VRM mounted on the busboard itself.  This should supply 10W load to the PCI slots.  This is only sufficient for a Radeon and another low power PowerPC card like the KillerNIC.  On Desktop models while under load if you notice the backside of the busboard (opposite the VRM) is extremely hot you should reconsider your configuration.  
+* 3.3V Black MK3 "Black" Edition are the new versions manufactured since 2014.  These supply 3.3V power to the PCI slots via a 3 amp VRM mounted on the busboard itself.  This should supply 10W load to the PCI slots.  This is only sufficient for a 3.3V Radeon OR a low power PowerPC card like the KillerNIC.  On Desktop models while under load if you notice the backside of the busboard (opposite the VRM) is extremely hot you should reconsider your configuration.  
