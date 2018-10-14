@@ -350,7 +350,7 @@ This seems to be a widely experienced symptom, and may trace back to multiple un
  * Install [dtack](http://aminet.net/package/util/misc/dtack) and place it in `S:Startup-sequence` before anything touches the Mediator (i.e. at least before any `DEVS:Monitors` files are loaded)
     * Note that dtack may cause issues with Warp3D. If anyone would like to explain why dtack is able to help, we would love to place a thorough explanation here!
 
-## 5 Power
+## 5. Power
 
 As it relates to power there are two major varieties of Mediators, those that support 3.3V natively and those that do not.
 
